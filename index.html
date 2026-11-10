@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Actualicemos juntos el Plan de Acción de CTeI de Caldas · Consulta 2026</title>
+<meta name="description" content="Consulta abierta a integrantes del CODECTI y actores del SNCTeI para actualizar el Plan de Acción de la Política Pública de Ciencia, Tecnología e Innovación de Caldas (Ordenanza 952 de 2023).">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Actualicemos juntos el Plan de Acción de CTeI de Caldas">
+<meta property="og:description" content="Cinco preguntas para convertir la Ordenanza 952 de 2023 en una hoja de ruta con líneas, metas, proyectos, responsables y seguimiento.">
+<meta property="og:image" content="img/og.png">
+<meta name="theme-color" content="#12294a">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap">
+<script src="config.js"></script>
+<style>
+:root{
+  --navy:#12294a; --navy-2:#1b3a63; --teal:#17839f; --sky:#41b6e0; --lime:#8dc63f; --ochre:#c8892e;
+  --ink:#152238; --muted:#566377; --line:#dbe3ec; --bg:#f4f7fa; --surface:#fff; --soft:#e8f2f7; --soft-g:#eef6e4;
+  --head:"Poppins","Segoe UI",Arial,sans-serif; --body:"Lato","Segoe UI",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(18,41,74,.06),0 10px 28px rgba(18,41,74,.07);
+  --d-mantener:#17839f; --d-reformular:#41b6e0; --d-fusionar:#8dc63f; --d-eliminar:#c8892e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--body)}
+img{max-width:100%;display:block}
+a{color:var(--teal)}
+h1,h2,h3,h4{font-family:var(--head);margin:0;line-height:1.15;color:var(--navy);text-wrap:balance}
+p{margin:0}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
+.eyebrow{font:800 12.5px/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hex{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+
+/* header */
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:18px;min-height:70px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand img.cd{height:34px;width:auto}
+.brand .sep{width:1px;height:34px;background:var(--line)}
+.brand b{font:700 14px/1.15 var(--head);color:var(--navy);display:block}
+.brand small{font-size:12px;color:var(--muted);display:block}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{font:600 14px/1 var(--head);color:var(--navy);text-decoration:none;padding:10px 14px;border-radius:999px}
+.nav a:hover{background:var(--soft)}
+.nav a[aria-current="page"]{background:var(--navy);color:#fff}
+.nav a.cta{background:var(--lime);color:var(--navy)}
+.nav a.cta[aria-current="page"]{background:var(--navy);color:#fff}
+@media (max-width:720px){.top{position:static}.stepper{top:0!important}.brand img.cd{height:28px}.nav a{padding:8px 11px;font-size:13.5px}}
+h2[tabindex="-1"]:focus{outline:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font:700 15px/1 var(--head);padding:15px 24px;border-radius:12px;background:var(--navy);color:#fff}
+.btn:hover{filter:brightness(1.12)}
+.btn.lime{background:var(--lime);color:var(--navy)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn.small{padding:10px 16px;font-size:14px;border-radius:10px}
+.btn.danger{background:#b6452c}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(170deg,#0c6f7c 0%,#137a86 38%,#4f8064 70%,#b6812f 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 180px,rgba(255,255,255,.05) 180px 181px);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:center;padding-block:64px 72px}
+.hero .gob{width:86px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.2);margin-bottom:22px}
+.hero .eyebrow{color:#cdeefa}
+.hero h1{color:#fff;font-size:clamp(34px,5.2vw,60px);font-weight:800;letter-spacing:-.01em;margin-top:12px}
+.hero h1 em{font-style:normal;color:#c7ef8e}
+.hero .lead{font-size:clamp(17px,1.8vw,20px);max-width:54ch;margin-top:18px;color:#eaf6f8}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero .btn.ghost{color:#fff}
+.meta3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px;max-width:720px}
+.meta3 div{border-top:3px solid rgba(255,255,255,.55);padding-top:10px;font-size:14px;color:#e2f2f5}
+.meta3 b{display:block;font:700 14px/1.3 var(--head);color:#fff;margin-bottom:2px}
+.hexes{position:relative;height:100%;min-height:340px}
+.hexes span{position:absolute;display:block}
+.hexes .h1{width:210px;height:240px;right:10%;top:4%;background:var(--lime)}
+.hexes .h2{width:120px;height:138px;right:52%;top:38%;background:var(--sky)}
+.hexes .h3{width:150px;height:172px;right:2%;top:56%;background:rgba(255,255,255,.14)}
+.hexes .h4{width:70px;height:80px;right:40%;top:8%;background:rgba(255,255,255,.22)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hexes{display:none}.meta3{grid-template-columns:1fr}}
+
+/* five questions band */
+.five{background:var(--surface);border-bottom:1px solid var(--line)}
+.five ol{list-style:none;margin:0;padding:26px 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.five li{display:grid;justify-items:center;text-align:center;gap:8px;font:700 15px/1.2 var(--head);color:var(--navy)}
+.five li i{font-style:normal;width:52px;height:58px;display:grid;place-items:center;color:#fff;font:800 20px/1 var(--head)}
+.five li small{font:400 13.5px/1.35 var(--body);color:var(--muted);max-width:22ch}
+@media (max-width:700px){.five ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* sections */
+section.band{padding-block:72px}
+section.band.white{background:var(--surface)}
+.shead{display:flex;align-items:flex-end;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:32px}
+.shead .n{font:800 72px/.8 var(--head);color:#e3e9f0}
+.shead h2{font-size:clamp(24px,3vw,34px);text-transform:uppercase;letter-spacing:.01em}
+.shead p{color:var(--teal);font-weight:700;margin-top:6px}
+.banner{background:var(--navy);color:#fff;border-radius:18px;padding:28px 30px;display:grid;gap:8px}
+.banner .eyebrow{color:var(--sky)}
+.banner h3{color:#fff;font-size:clamp(20px,2.4vw,27px)}
+.banner p{color:#c8d6e6}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.grid2,.grid3{grid-template-columns:1fr}.grid5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.soft{background:var(--soft);border-radius:16px;padding:22px}
+.rule{border-left:4px solid var(--teal);background:var(--soft);border-radius:0 14px 14px 0;padding:18px 20px;display:grid;gap:6px}
+.rule.g{border-color:var(--lime);background:var(--soft-g)}
+.rule .eyebrow{font-size:11.5px}
+.objs{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:10px}
+.objs li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;font-size:15.5px}
+.objs li i{font-style:normal;width:28px;height:32px;display:grid;place-items:center;color:#fff;font:700 13px/1 var(--head)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl thead th{background:var(--navy);color:#fff;font:700 12.5px/1.2 var(--head);letter-spacing:.06em;text-transform:uppercase}
+.tbl td b.code{font:700 14px var(--head);color:var(--teal)}
+.stat{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:14px;padding:16px 18px;display:grid;gap:2px}
+.stat b{font:800 32px/1.05 var(--head);color:var(--navy)}
+.stat span{font-size:14px;color:var(--muted)}
+.stat.t{border-top-color:var(--teal)}.stat.s{border-top-color:var(--sky)}.stat.l{border-top-color:var(--lime)}
+.hb{display:grid;gap:7px}
+.hb .r{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:center;font-size:14px}
+.hb .r.wide{grid-template-columns:170px minmax(0,1fr)}
+.hb .r.mid{grid-template-columns:110px minmax(0,1fr)}
+.hb .r b{font:700 14px var(--head);color:var(--navy)}
+.hb .bar{display:flex;align-items:center;gap:8px;min-width:0}
+.hb .bar i{display:block;height:20px;border-radius:0 5px 5px 0;background:var(--teal);flex:none}
+.hb .bar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.hb .bar span strong{color:var(--ink)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:3px;background:var(--c)}
+.quote{background:var(--navy);color:#fff;border-radius:18px;padding:30px;display:grid;grid-template-columns:70px minmax(0,1fr);gap:22px;align-items:center}
+.quote i{width:64px;height:72px;background:var(--lime);display:grid;place-items:center;font:800 30px var(--head);color:var(--navy);font-style:normal}
+.quote p{font:600 clamp(18px,2.1vw,23px)/1.4 var(--head)}
+.quote em{font-style:normal;color:#b6e27a}
+.dis{display:grid;gap:12px;align-content:start}
+.dis .pill{justify-self:start;background:var(--navy);color:#fff;font:700 12.5px var(--head);padding:6px 14px;border-radius:999px}
+.dis p.note{font-size:14.5px;color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:8px}
+.flow div{padding:16px 26px 16px 18px;color:#fff;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%,16px 50%);display:grid;gap:2px}
+.flow div:first-child{clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%)}
+.flow b{font:700 15px var(--head)}
+.flow span{font-size:13px;opacity:.9;line-height:1.3}
+@media (max-width:760px){.flow{grid-template-columns:1fr}.flow div,.flow div:first-child{clip-path:none;border-radius:10px}}
+.gold{background:var(--navy);border-radius:18px;padding:28px 30px;color:#fff;display:grid;gap:8px}
+.gold .eyebrow{color:var(--sky)}
+.gold h3{color:#fff;font-size:clamp(20px,2.5vw,28px);font-weight:600}
+.gold h3 em{font-style:normal;color:#b6e27a}.gold h3 u{text-decoration:none;color:var(--sky)}
+.gold p{color:#c8d6e6;font-size:15px}
+.tag{display:inline-block;font:700 11.5px/1 var(--head);padding:5px 9px;border-radius:999px;background:var(--soft);color:var(--teal);margin:1px 2px}
+
+/* consulta */
+.vhead{background:linear-gradient(120deg,var(--navy),#0f5e78);color:#fff}
+.vhead .wrap{padding-block:38px 34px;display:grid;gap:8px}
+.vhead h1{color:#fff;font-size:clamp(26px,3.8vw,40px)}
+.vhead p{color:#cfe2ee;max-width:72ch}
+.vhead .eyebrow{color:var(--sky)}
+.stepper{position:sticky;top:70px;z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.stepper ol{list-style:none;margin:0 auto;padding:10px 0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin}
+.stepper li button{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;white-space:nowrap;font:600 14px var(--head);color:var(--muted)}
+.stepper li button i{font-style:normal;width:28px;height:32px;display:grid;place-items:center;background:#dfe7ef;color:var(--navy);font:800 13px var(--head)}
+.stepper li button[aria-current="step"]{background:var(--soft);color:var(--navy)}
+.stepper li button[aria-current="step"] i{background:var(--navy);color:#fff}
+.stepper li button.done i{background:var(--lime);color:var(--navy)}
+.stepper li button:focus-visible{outline:3px solid var(--sky)}
+.progress{height:4px;background:#e3eaf1}
+.progress i{display:block;height:100%;background:var(--lime);transition:width .3s}
+.qwrap{padding-block:34px 70px;display:grid;gap:22px}
+.qhead{background:var(--navy);color:#fff;border-radius:18px;padding:24px 26px;display:grid;grid-template-columns:76px minmax(0,1fr);gap:18px;align-items:center}
+.qhead i{font-style:normal;width:70px;height:78px;background:var(--lime);display:grid;place-items:center;font:800 30px var(--head);color:var(--navy)}
+.qhead .eyebrow{color:var(--sky);font-size:11.5px}
+.qhead h2{color:#fff;font-size:clamp(19px,2.4vw,25px);margin-top:6px}
+.know{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.know{grid-template-columns:1fr}.qhead{grid-template-columns:1fr}.qhead i{width:52px;height:58px;font-size:22px}}
+.know div{border-radius:14px;padding:16px 18px;font-size:15px;border-left:4px solid var(--sky);background:var(--soft)}
+.know div:last-child{border-color:var(--lime);background:var(--soft-g)}
+.know b.eyebrow{display:block;margin-bottom:6px;font-size:11.5px;color:var(--navy)}
+.block{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px}
+.block > h3{font:800 13px/1.3 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.block > p.hint{font-size:14.5px;color:var(--muted);margin-top:-8px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.fields{grid-template-columns:1fr}}
+label.f{display:grid;gap:6px;font-size:14.5px;font-weight:700;color:var(--navy)}
+label.f span.req{color:#b6452c}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{font:inherit;font-size:16px;color:var(--ink);background:#fbfdff;border:1.5px solid #cfd9e4;border-radius:10px;padding:10px 12px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px rgba(65,182,224,.25)}
+textarea{min-height:84px;resize:vertical}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.checks.c2{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.ck{position:relative;display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;font-size:15px;line-height:1.35;background:#fff}
+.ck:hover{border-color:#a9c6d6}
+.ck input{width:18px;height:18px;margin:1px 0 0;flex:none;accent-color:var(--teal)}
+.ck:has(input:checked){border-color:var(--teal);background:var(--soft)}
+.ck.other{flex-wrap:wrap}
+.ck.other input[type=text]{flex:1 1 140px;padding:6px 8px;font-size:15px}
+.ltable{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px}
+.ltable th{background:var(--navy);color:#fff;font:700 12px/1.2 var(--head);letter-spacing:.05em;text-transform:uppercase;padding:10px 8px;text-align:center}
+.ltable th:nth-child(-n+2){text-align:left}
+.ltable td{padding:8px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+.ltable td:nth-child(-n+2){text-align:left}
+.ltable tr.mis td{background:var(--soft);font:800 12px var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);text-align:left}
+.ltable td b{font:700 14px var(--head);color:var(--teal)}
+.ltable input[type=radio]{width:20px;height:20px;accent-color:var(--teal);cursor:pointer;margin:0}
+.seg3{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.seg3 label{cursor:pointer}
+.seg3 input{position:absolute;opacity:0;pointer-events:none}
+.seg3 span{display:block;padding:5px 11px;font:700 13px var(--head);color:var(--muted)}
+.seg3 input:checked + span{background:var(--navy);color:#fff}
+.seg3 input:focus-visible + span{outline:3px solid var(--sky)}
+.clr{all:unset;cursor:pointer;font-size:12.5px;color:var(--muted);text-decoration:underline;margin-left:6px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ltable{min-width:760px}
+.rowcard{border:1.5px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;background:#fbfdff}
+.rowcard header{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.rowcard header b{font:700 14px var(--head);color:var(--navy);text-transform:uppercase;letter-spacing:.06em}
+.fields.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:700px){.fields.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.example{font-style:italic;color:#1f6fa6;background:#eef7fc;border-radius:10px;padding:10px 12px;font-size:14px}
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}
+.ladder div{padding:10px 22px 10px 14px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%,12px 50%);font-size:13px;line-height:1.25}
+.ladder div:first-child{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,0 100%)}
+.ladder b{display:block;font:700 14px var(--head)}
+@media (max-width:640px){.ladder{grid-template-columns:repeat(2,1fr)}.ladder div,.ladder div:first-child{clip-path:none;border-radius:8px}}
+.nav-q{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;padding-top:6px}
+.notice{padding:12px 16px;border-radius:12px;background:var(--soft-g);font-size:15px}
+.notice.warn{background:#fdf1e2;border-left:4px solid var(--ochre)}
+.notice.err{background:#fbe9e5;border-left:4px solid #b6452c}
+.savestate{font-size:13.5px;color:var(--muted)}
+.review{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media (max-width:640px){.review{grid-template-columns:1fr}}
+.review li{display:flex;gap:10px;align-items:center;font-size:15px;padding:10px 12px;border-radius:10px;background:#fbfdff;border:1px solid var(--line)}
+.review li i{font-style:normal;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:800 13px var(--head);background:#e3e9f0;color:var(--muted);flex:none}
+.review li.ok i{background:var(--lime);color:var(--navy)}
+.consent{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--soft);font-size:14.5px;line-height:1.45;cursor:pointer}
+.consent input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--teal)}
+.consent.missing{background:#fbe9e5}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.thanks{text-align:center;display:grid;gap:14px;justify-items:center;padding:40px 22px}
+.thanks i{font-style:normal;width:84px;height:96px;background:var(--lime);display:grid;place-items:center;font:800 40px var(--head);color:var(--navy)}
+
+/* resultados */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:14px;align-content:start}
+.chart h3{font-size:18px}
+.chart p.sub{font-size:14px;color:var(--muted);margin-top:-8px}
+.stack{display:grid;gap:8px}
+.stack .r{display:grid;grid-template-columns:minmax(0,230px) minmax(0,1fr) 54px;gap:10px;align-items:center;font-size:14px}
+@media (max-width:640px){.stack .r{grid-template-columns:minmax(0,1fr) 46px}.stack .r .bar{grid-column:1/-1;order:3}}
+.stack .r .lbl{min-width:0}
+.stack .r .lbl b{font:700 13.5px var(--head);color:var(--teal);margin-right:6px}
+.stack .bar{display:flex;height:22px;border-radius:6px;overflow:hidden;background:#eef2f6}
+.stack .bar i{display:block;height:100%}
+.stack .r .pr{font:700 13px var(--head);color:var(--navy);text-align:right}
+.empty{border:2px dashed var(--line);border-radius:16px;padding:36px;text-align:center;color:var(--muted);display:grid;gap:10px;justify-items:center}
+.admin-list{width:100%;border-collapse:collapse;font-size:14px}
+.admin-list th,.admin-list td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.admin-list th{font:700 12px var(--head);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+
+/* footer */
+footer{background:var(--navy);color:#c8d6e6;font-size:14px}
+footer .wrap{padding-block:36px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+footer .logos{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+footer .logos img.cd{height:40px;width:auto}
+footer .logos img.gb{height:64px;width:auto;border-radius:10px}
+footer .right{display:grid;gap:8px;justify-items:end;text-align:right}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}footer .right{justify-items:start;text-align:left}}
+.linkbtn{all:unset;cursor:pointer;color:#b6e27a;text-decoration:underline}
+.linkbtn:focus-visible{outline:2px solid var(--sky)}
+.admin{display:none;gap:8px;align-items:center;flex-wrap:wrap}
+.admin.open{display:flex}
+.admin input{font:inherit;font-size:14px;padding:8px 10px;border-radius:8px;border:1px solid #39557d;background:#0f2340;color:#fff;width:200px}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#inicio" aria-label="Inicio">
+    <img class="cd" src="img/cdter.png" alt="CDTER · Construimos territorio" width="147" height="34">
+    <span class="sep" aria-hidden="true"></span>
+    <span><b>Plan de Acción CTeI Caldas</b><small>Consulta 2026 · Ordenanza 952</small></span>
+  </a>
+  <nav class="nav" aria-label="Secciones">
+    <a href="#inicio">Inicio</a>
+    <a href="#contexto">Contexto</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#consulta" class="cta">Responder</a>
+  </nav>
+</div></header>
+
+<main id="main">
+
+<!-- ================= INICIO ================= -->
+<div id="v-inicio" data-view>
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="wrap">
+      <div>
+        <img class="gob" src="img/gobierno-caldas.jpg" alt="Gobierno de Caldas" width="86" height="103">
+        <span class="eyebrow">Instrumento de consulta · Política pública de CTeI</span>
+        <h1 id="h-hero">Actualicemos juntos el Plan de Acción de <em>Ciencia, Tecnología e Innovación</em> de Caldas</h1>
+        <p class="lead">Cinco preguntas para convertir la Ordenanza 952 de 2023 en una hoja de ruta con líneas, metas, proyectos, responsables y seguimiento.</p>
+        <div class="ctas">
+          <a class="btn lime" href="#consulta">Responder la consulta</a>
+          <a class="btn ghost" href="#contexto">Leer el contexto</a>
+        </div>
+        <div class="meta3">
+          <div><b>Dirigido a</b>Integrantes del CODECTI y actores del SNCTeI en Caldas</div>
+          <div><b>Tiempo estimado</b>25 a 30 minutos · se guarda su avance</div>
+          <div><b>Marco</b>Convenio 28102026-2039 · Componentes 2 y 3 (P-04 a P-08)</div>
+        </div>
+      </div>
+      <div class="hexes" aria-hidden="true"><span class="hex h1"></span><span class="hex h2"></span><span class="hex h3"></span><span class="hex h4"></span></div>
+    </div>
+  </section>
+
+  <div class="five"><div class="wrap"><ol>
+    <li><i class="hex" style="background:var(--teal)">1</i>Líneas<small>Cuáles mantener, reformular, fusionar, eliminar o crear</small></li>
+    <li><i class="hex" style="background:var(--sky)">2</i>Metas<small>Qué resultado medible, dónde y para quién</small></li>
+    <li><i class="hex" style="background:var(--lime);color:var(--navy)">3</i>Proyectos<small>Qué iniciativas priorizar y con qué fuente</small></li>
+    <li><i class="hex" style="background:var(--navy)">4</i>Gobernanza<small>Quién lidera y qué compromiso asume</small></li>
+    <li><i class="hex" style="background:var(--teal)">5</i>Seguimiento<small>Qué datos aporta y cómo conocer el avance</small></li>
+  </ol></div></div>
+
+  <section class="band white" aria-labelledby="h-antes">
+    <div class="wrap">
+      <div class="shead"><span class="n">00</span><div><h2 id="h-antes">Antes de empezar</h2><p>Una pregunta, un producto</p></div></div>
+      <p style="max-width:78ch;font-size:18px">Este instrumento recoge la voz de quienes hacen la ciencia, la tecnología y la innovación en Caldas. Sus respuestas se convierten directamente en los productos que actualizarán el Plan de Acción de la política pública: <strong>qué líneas seguir, qué metas fijar, qué proyectos financiar, quién lidera y cómo medimos el avance.</strong></p>
+      <div class="scroll" style="margin-top:24px"><table class="tbl" style="min-width:620px">
+        <thead><tr><th>Pregunta</th><th>Qué le preguntamos</th><th>Producto que alimenta</th></tr></thead>
+        <tbody>
+          <tr><td><b class="code">1</b></td><td><strong>Líneas estratégicas.</strong> ¿Cuáles mantener, reformular, fusionar, eliminar o crear?</td><td><span class="tag">P-04</span> Líneas de acción</td></tr>
+          <tr><td><b class="code">2</b></td><td><strong>Metas e indicadores.</strong> ¿Qué resultado medible, dónde y para quién?</td><td><span class="tag">P-04</span> Metas e indicadores</td></tr>
+          <tr><td><b class="code">3</b></td><td><strong>Proyectos y financiación.</strong> ¿Qué iniciativas priorizar y con qué fuente?</td><td><span class="tag">P-05</span> Portafolio de proyectos</td></tr>
+          <tr><td><b class="code">4</b></td><td><strong>Gobernanza.</strong> ¿Quién lidera cada línea y qué compromiso asume su organización?</td><td><span class="tag">P-06</span><span class="tag">P-07</span> Validación y gobernanza</td></tr>
+          <tr><td><b class="code">5</b></td><td><strong>Seguimiento.</strong> ¿Qué datos aporta y cómo quiere conocer el avance?</td><td><span class="tag">P-08</span> Tablero de indicadores</td></tr>
+        </tbody></table></div>
+      <div class="grid3" style="margin-top:28px">
+        <div class="rule"><span class="eyebrow">1 · Lea el contexto</span><p>Las secciones de contexto resumen la Ordenanza 952, el Plan de Acción y lo que encontró la evaluación. Cada pregunta trae además una caja «Lo que sabemos».</p></div>
+        <div class="rule g"><span class="eyebrow">2 · Responda con hechos</span><p>Escriba con la mayor precisión posible: cifras, nombres de instituciones, municipios y fechas. Los ejemplos en <em style="color:#1f6fa6">azul cursiva</em> son ilustrativos.</p></div>
+        <div class="rule"><span class="eyebrow">3 · Priorice</span><p>No es necesario opinar sobre todas las líneas. Concéntrese en aquellas donde su organización tiene <strong>conocimiento, capacidad o interés real</strong>.</p></div>
+      </div>
+      <h3 style="margin:40px 0 12px;font-size:20px">Qué pasa con sus respuestas</h3>
+      <div class="flow">
+        <div style="background:var(--navy)"><b>Consulta</b><span>Usted diligencia el instrumento</span></div>
+        <div style="background:#145f86"><b>Consolidación</b><span>CDTER sistematiza y cruza por subregión y tipo de actor</span></div>
+        <div style="background:var(--teal)"><b>Productos</b><span>Insumo para P-04 a P-08</span></div>
+        <div style="background:#2a9fca"><b>Validación</b><span>Sesión del CODECTI</span></div>
+        <div style="background:var(--lime);color:var(--navy)"><b>Hoja de ruta</b><span>P-09: Plan actualizado 2027–2033</span></div>
+      </div>
+      <div class="soft" style="margin-top:24px"><span class="eyebrow">Tratamiento de datos</span><p style="font-size:14.5px;margin-top:6px">La información se usará exclusivamente para la actualización del Plan de Acción de la Política Pública de CTeI de Caldas, conforme a la Ley 1581 de 2012. Los resultados se presentarán de forma agregada. Los compromisos institucionales que usted registre en la Pregunta 4 podrán ser socializados en el CODECTI para su validación.</p></div>
+      <div style="margin-top:28px"><a class="btn" href="#consulta">Empezar la consulta</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTEXTO ================= -->
+<div id="v-contexto" data-view hidden>
+  <div class="vhead"><div class="wrap"><span class="eyebrow">Contexto</span><h1>De la política a la consulta</h1><p>Lo que dice la Ordenanza 952 de 2023, qué contemplaba el Plan de Acción, qué encontró la evaluación y las nueve recomendaciones que usted ayudará a aterrizar.</p></div></div>
+
+  <section class="band white" aria-labelledby="h-pol">
+    <div class="wrap">
+      <div class="shead"><span class="n">01</span><div><h2 id="h-pol">La política</h2><p>Ordenanza 952 de abril de 2023</p></div></div>
+      <div class="banner"><span class="eyebrow">Política pública de ciencia, tecnología e innovación</span><h3>«Caldas equitativa, productiva y sustentable: Conocimiento y Educación para el desarrollo» 2023–2033</h3><p>Adoptada por la Asamblea Departamental. Nace de la Misión de Sabios por Caldas 2020–2021, que reunió a 37 comisionados de universidades, centros de investigación, empresas, gremios y alcaldías.</p></div>
+      <div class="grid2" style="margin-top:28px">
+        <div>
+          <span class="eyebrow">Objetivo general (art. 4)</span>
+          <p style="margin-top:6px">Consolidar la <strong>equidad, la competitividad y la sostenibilidad</strong> de Caldas a partir del conocimiento, la educación, la tecnología y la innovación.</p>
+          <span class="eyebrow" style="display:block;margin-top:20px">Objetivos específicos (art. 5)</span>
+          <ul class="objs">
+            <li><i class="hex" style="background:var(--teal)">a</i>Posicionar a Caldas como territorio <strong>biointeligente</strong> y sostenible.</li>
+            <li><i class="hex" style="background:var(--lime);color:var(--navy)">b</i>Implementar un modelo productivo soportado en la <strong>economía circular</strong>.</li>
+            <li><i class="hex" style="background:var(--sky)">c</i>Reducir <strong>brechas</strong> sociales, económicas, políticas y culturales.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="eyebrow">Cinco nodos temáticos de la Misión de Sabios</span>
+          <table class="tbl" style="margin-top:8px"><tbody>
+            <tr><td><b class="code">Nodo 1</b></td><td>Bioeconomía y economía creativa</td></tr>
+            <tr><td><b class="code">Nodo 2</b></td><td>Agua y cambio climático</td></tr>
+            <tr><td><b class="code">Nodo 3</b></td><td>Nuevos modelos productivos y sostenibles</td></tr>
+            <tr><td><b class="code">Nodo 4</b></td><td>Conocimiento e innovación para la equidad</td></tr>
+            <tr><td><b class="code">Nodo 5</b></td><td>Educar con calidad para el desarrollo humano</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <h3 style="margin:36px 0 14px;font-size:20px">Las reglas de juego que este instrumento ayuda a cumplir</h3>
+      <div class="grid2" style="gap:16px">
+        <div class="rule"><span class="eyebrow">Art. 7 · Planes de gestión</span><p>Al menos <strong>tres planes</strong> de gestión durante la vigencia, articulados al plan de desarrollo departamental y construidos con el CODECTI. <strong>Esta actualización es uno de ellos.</strong></p></div>
+        <div class="rule g"><span class="eyebrow">Art. 10 · Articulación</span><p>El <strong>CODECTI</strong> lidera la gobernanza del sistema. El <strong>Parque Tecnológico de Caldas</strong> es instrumento dinamizador de la política.</p></div>
+        <div class="rule"><span class="eyebrow">Art. 11 · Seguimiento</span><p>Mínimo <strong>dos sesiones al año</strong> del CODECTI dedicadas al control de la política, y un informe a la Asamblea por cada periodo de gobierno.</p></div>
+        <div class="rule g"><span class="eyebrow">Art. 12 · Regla de oro</span><p>Todo proyecto de CTeI, en especial del <strong>SGR</strong>, debe demostrar su contribución a las líneas estratégicas de la política.</p></div>
+      </div>
+      <div class="soft" style="margin-top:16px"><strong>Índices de la política (art. 8):</strong> Índice de Competitividad de Ciudades (Consejo Privado de Competitividad–U. del Rosario) e Índice Departamental de Innovación para Colombia (IDIC, DNP). Ambos servirán como indicadores de impacto del tablero de seguimiento (Pregunta 5).</div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="h-plan">
+    <div class="wrap">
+      <div class="shead"><span class="n">02</span><div><h2 id="h-plan">El Plan de Acción</h2><p>Qué se iba a hacer, quién lo lideraba y en qué plazo</p></div></div>
+      <div class="grid5">
+        <div class="stat"><b>3</b><span>misiones</span></div>
+        <div class="stat t"><b>5</b><span>nodos</span></div>
+        <div class="stat s"><b>14</b><span>líneas estratégicas</span></div>
+        <div class="stat l"><b>43</b><span>productos</span></div>
+        <div class="stat"><b>10</b><span>años de horizonte</span></div>
+      </div>
+      <div class="grid2" style="margin-top:28px">
+        <div class="card"><span class="eyebrow">Productos por línea estratégica</span><div class="hb" id="ctxLineas" style="margin-top:14px"></div>
+          <div class="legend"><span style="--c:var(--teal)"><i></i>M1 · Biodiversidad, bioeconomía y territorio</span><span style="--c:var(--lime)"><i></i>M2 · Campo, producción y manufactura inteligentes</span><span style="--c:var(--sky)"><i></i>M3 · Sociedad digital, salud y educación</span></div></div>
+        <div class="card"><span class="eyebrow">Quién lidera · productos liderados o co-liderados</span><div class="hb" id="ctxLidera" style="margin-top:14px"></div>
+          <p class="muted" style="font-size:14px;margin-top:12px">La Secretaría de Desarrollo, Empleo e Innovación es la columna vertebral del plan: participa en 28 de los 43 productos.</p>
+          <span class="eyebrow" style="display:block;margin-top:18px">Horizonte de las metas</span>
+          <div class="flow" style="grid-template-columns:repeat(3,1fr)"><div style="background:var(--teal)"><b>Corto</b><span>1 a 3 años</span></div><div style="background:var(--navy)"><b>Mediano</b><span>3 a 5 años</span></div><div style="background:var(--lime);color:var(--navy)"><b>Largo</b><span>5 a 10 años</span></div></div>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:20px">
+        <div class="card"><span class="eyebrow">Patrón 1</span><p style="margin-top:6px">Los <strong>sistemas de información y observatorios</strong> se repiten en casi todas las líneas: minería, biodiversidad, cultura, riesgo y productividad.</p></div>
+        <div class="card"><span class="eyebrow">Patrón 2</span><p style="margin-top:6px">Los <strong>pactos</strong> (economía circular, energía, educación) siguen el mismo ciclo: acuerdo, implementación y evaluación.</p></div>
+        <div class="card"><span class="eyebrow">Patrón 3</span><p style="margin-top:6px"><strong>Descentralización</strong> prevista: 6 comités subregionales y 27 municipales de CTeI, con incubadoras y centros de ciencia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band white" aria-labelledby="h-eval">
+    <div class="wrap">
+      <div class="shead"><span class="n">03</span><div><h2 id="h-eval">Lo que encontró la evaluación</h2><p>Síntesis del Informe de Avance N.º 1 · P-01, P-02 y P-03</p></div></div>
+      <div class="quote"><i class="hex">!</i><p>Caldas no tiene un problema de capacidades ni de recursos: <em>tiene un problema de conexión.</em> El conocimiento no llega a la empresa, Manizales no llega a las subregiones y los recursos no llegan a proyectos estructurados.</p></div>
+      <h3 style="margin:32px 0 14px;font-size:20px">Tres desconexiones</h3>
+      <div class="grid3">
+        <div class="dis"><span class="pill">P-01 · Plan vs. ejecución</span>
+          <div class="stat"><b>3 de 14</b><span>líneas estratégicas avanzaron</span></div>
+          <div class="stat"><b>22 de 22</b><span>compromisos vencidos</span></div>
+          <div class="stat"><b>0,629</b><span>eficiencia en el IDIC</span></div>
+          <p class="note">Una política bien diseñada que no se ejecutó: el plan cayó en el «efecto plantilla», con metas genéricas sin anclaje en actores reales que las asumieran como propias.</p></div>
+        <div class="dis"><span class="pill">P-02 · Manizales vs. periferia</span>
+          <div class="stat s"><b>92,3 %</b><span>de los grupos de investigación están en Centro-Sur</span></div>
+          <div class="stat s"><b>6 de 8</b><span>municipios con menos de 15 % de conexión</span></div>
+          <div class="stat s"><b>35 días</b><span>de aislamiento tras el sismo de agosto</span></div>
+          <p class="note">Un ecosistema concentrado y frágil. Además, un departamento que envejece (20,8 % mayor de 60 años) y siete grupos poblacionales con barreras propias.</p></div>
+        <div class="dis"><span class="pill">P-03 · Recursos vs. proyectos</span>
+          <div class="stat l"><b>46,7 %</b><span>de absorción del SGR CTeI</span></div>
+          <div class="stat l"><b>$23.400 M</b><span>congelados (2023–2024)</span></div>
+          <div class="stat l"><b>11 de 100</b><span>ideas llegan a desembolso</span></div>
+          <p class="note">Hay plata y faltan proyectos. El cuello de botella es la <strong>formulación y la viabilización</strong>, no la asignación.</p></div>
+      </div>
+      <div class="grid2" style="margin-top:22px">
+        <div class="card"><span class="eyebrow">Más recursos asignados…</span><p class="muted" style="font-size:14px">SGR CTeI por bienio, millones de pesos</p>
+          <div class="hb" style="margin-top:12px"><div class="r wide"><span>Bienio anterior</span><div class="bar"><i style="width:63%"></i><span><strong>$32.450 M</strong></span></div></div><div class="r wide"><span>Bienio actual</span><div class="bar"><i style="width:100%;max-width:calc(100% - 90px)"></i><span><strong>$51.200 M</strong></span></div></div></div></div>
+        <div class="card"><span class="eyebrow">…pero menos ejecución</span><p class="muted" style="font-size:14px">Porcentaje de ejecución del SGR CTeI</p>
+          <div class="hb" style="margin-top:12px"><div class="r wide"><span>Bienio anterior</span><div class="bar"><i style="width:68%;background:var(--navy)"></i><span><strong>68 %</strong></span></div></div><div class="r wide"><span>Bienio actual</span><div class="bar"><i style="width:17%;background:var(--navy)"></i><span><strong>17 %</strong></span></div></div></div></div>
+      </div>
+      <div class="soft" style="margin-top:20px"><strong>La palanca: un sistema, no una entidad.</strong> Un CODECTI (Decreto 114 de 2025) que asigne a cada línea un <strong>actor ancla</strong> con capacidad instalada (IES, centros de I+D, gremios, infraestructura territorial) y una <strong>PMO departamental</strong> que estructure los proyectos para movilizar los recursos congelados.</div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="h-reco">
+    <div class="wrap">
+      <div class="shead"><span class="n">04</span><div><h2 id="h-reco">De la evaluación a la consulta</h2><p>Nueve recomendaciones que usted ayudará a aterrizar</p></div></div>
+      <div class="scroll"><table class="tbl" style="min-width:680px;background:var(--surface)">
+        <thead><tr><th>N.º</th><th>Recomendación del Informe 1</th><th>Producto</th><th>Pregunta</th></tr></thead>
+        <tbody id="recoBody"></tbody></table></div>
+      <h3 style="margin:32px 0 12px;font-size:20px">Dónde estamos en la consultoría</h3>
+      <div class="flow" style="grid-template-columns:repeat(4,1fr)">
+        <div style="background:#c9d3de;color:var(--navy)"><b>Componente 1</b><span>Diagnóstico · P-01 a P-03 ✓</span></div>
+        <div style="background:var(--teal)"><b>Componente 2</b><span>Hoja de ruta · P-04 a P-06</span></div>
+        <div style="background:var(--navy)"><b>Componente 3</b><span>Gobernanza · P-07 y P-08</span></div>
+        <div style="background:var(--lime);color:var(--navy)"><b>Cierre</b><span>P-09 · Informe final</span></div>
+      </div>
+      <p class="muted" style="font-size:14.5px;margin-top:10px">Este instrumento abre los Componentes 2 y 3: lo que usted responda es la materia prima de los productos P-04 a P-08.</p>
+      <div class="gold" style="margin-top:24px"><span class="eyebrow">Condición de éxito · Regla de oro</span><h3>Ninguna meta sin <em>fuente identificada</em>, <u>instrumento habilitado</u> y <em>contrapartida estimada</em>.</h3><p>Por eso las preguntas no solo indagan qué hacer: también preguntan con qué recursos, quién responde y cómo se mide.</p></div>
+      <div style="margin-top:28px"><a class="btn" href="#consulta">Responder la consulta</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONSULTA ================= -->
+<div id="v-consulta" data-view hidden>
+  <div class="vhead"><div class="wrap"><span class="eyebrow">Instrumento de consulta</span><h1>Su aporte construye la hoja de ruta</h1><p>Siete pasos. Su avance se guarda automáticamente en este navegador: puede cerrar y volver más tarde. Solo los campos marcados con <span style="color:#ffb4a2">*</span> son obligatorios.</p></div></div>
+  <nav class="stepper" aria-label="Pasos de la consulta"><div class="wrap"><ol id="stepNav"></ol></div><div class="progress"><i id="progBar" style="width:0"></i></div></nav>
+  <form id="qForm" class="wrap qwrap" novalidate autocomplete="on">
+    <div id="stepBody"></div>
+    <div class="nav-q">
+      <button type="button" class="btn ghost small" id="prevBtn" style="color:var(--navy)">← Anterior</button>
+      <span class="savestate" id="saveState" aria-live="polite"></span>
+      <button type="button" class="btn small" id="nextBtn">Siguiente →</button>
+    </div>
+  </form>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div id="v-resultados" data-view hidden>
+  <div class="vhead"><div class="wrap"><span class="eyebrow">Resultados agregados</span><h1>Lo que dice el ecosistema</h1><p>Síntesis en vivo de las respuestas recibidas. Se presentan de forma agregada, sin identificar organizaciones ni personas, conforme a la Ley 1581 de 2012.</p></div></div>
+  <div class="wrap" style="padding-block:32px 72px;display:grid;gap:22px">
+    <div class="kpis" id="kpis"></div>
+    <div id="resBody" style="display:grid;gap:22px"></div>
+    <div id="adminPanel" hidden></div>
+  </div>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div style="display:grid;gap:14px">
+    <div class="logos"><img class="cd" src="img/cdter-blanco.png" alt="CDTER · Construimos territorio" width="173" height="40"><img class="gb" src="img/gobierno-caldas.jpg" alt="Gobierno de Caldas" width="54" height="64"></div>
+    <span>Secretaría de Desarrollo, Empleo e Innovación · Gobierno de Caldas · Noviembre de 2026<br>Consulta para la actualización del Plan de Acción de la Política Pública de CTeI (Ordenanza 952 de 2023).</span>
+  </div>
+  <div class="right">
+    <span id="syncState">Conectando…</span>
+    <span><button type="button" class="linkbtn" id="adminToggle">Acceso administrador</button></span>
+    <span class="admin" id="adminBox"><input type="password" id="adminKey" placeholder="Clave de administrador" autocomplete="current-password"><button type="button" class="btn lime small" id="adminIn">Entrar</button></span>
+    <span class="admin" id="adminTools"><button type="button" class="btn lime small" id="csvBtn">Descargar CSV</button><button type="button" class="btn ghost small" id="adminOut" style="color:#fff">Salir</button></span>
+    <span id="adminMsg"></span>
+  </div>
+</div></footer>
+
+<script>
+"use strict";
+/* ================= DATA ================= */
+const MIS={M1:{t:"Biodiversidad, bioeconomía y territorio",c:"var(--teal)"},M2:{t:"Campo, producción y manufactura inteligentes",c:"var(--lime)"},M3:{t:"Sociedad digital, salud y educación",c:"var(--sky)"}};
+const LINEAS=[
+ ["L1","M1","Sistemas productivos ecoeficientes",3],["L2","M1","Bioeconomía para el desarrollo sostenible",4],["L3","M1","Gestión de información para la economía creativa",3],
+ ["L4","M1","Especialización inteligente municipal",3],["L5","M1","Servicios ecosistémicos",2],["L6","M1","Gestión del riesgo y cambio climático",3],
+ ["L7","M2","Tenencia y gestión de la tierra",4],["L8","M2","Manufactura inteligente",4],["L9","M2","Apropiación de conocimiento para sofisticar modelos productivos",2],
+ ["L10","M2","Pacto por la economía circular y la gestión energética",2],["L11","M3","Acceso y uso de las TIC para reducir brechas digitales",3],
+ ["L12","M3","Modelo de salud basado en CTeI",3],["L13","M3","Condiciones del entorno para la transformación social y productiva",4],["L14","M3","Pacto por una educación para la transformación",3]
+].map(([k,m,t,p])=>({k,m,t,p,lbl:"L-"+k.slice(1)}));
+const LIDERA=[["Desarrollo, Empleo e Innov.",28],["Medio Ambiente",8],["Agricultura",6],["Educación",6],["Cultura",5],["Salud",4],["CODECTI",4],["Planeación",1],["Vivienda (PDA)",1]];
+const RECO=[
+ ["PMO departamental de estructuración.","Clínica MGA y lista de habilitantes para movilizar los $23.400 M congelados.",["P-05","P-07"],"3 · 4"],
+ ["Reformular las 14 líneas con anclaje territorial.","Metas por subregión y con enfoque diferencial, con cortes 2027, 2030 y 2033.",["P-04"],"1 · 2"],
+ ["Red Dorsal de Emergencia","y redundancia de conectividad en nodos críticos.",["P-05"],"3"],
+ ["Red de 5 nodos subregionales","conectados al núcleo Manizales–Villamaría.",["P-05","P-07"],"3 · 4"],
+ ["Fondo semilla de co-inversión","para spin-offs y empresas de base tecnológica.",["P-05"],"3"],
+ ["CODECTI operativo y tablero de seguimiento","con reporte semestral.",["P-06","P-07","P-08"],"4 · 5"],
+ ["Ventanilla de beneficios tributarios y vouchers","de innovación.",["P-05"],"3"],
+ ["Bootcamps Talento 4.0:","IA aplicada, nube e inglés técnico.",["P-04","P-05"],"1 · 3"],
+ ["Asignar fuente a L-3, L-7 y L-10,","hoy sin instrumento de financiación identificado.",["P-04"],"2 · 3"]];
+const ACTORES=["Institución de educación superior","Centro de investigación o desarrollo tecnológico","Empresa","Gremio o cámara de comercio","Entidad pública departamental","Alcaldía o entidad municipal","Entidad pública nacional","Organización social o comunitaria"];
+const SUBREG=["Centro-Sur","Norte","Alto Occidente","Bajo Occidente","Alto Oriente","Magdalena Caldense"];
+const CODECTI=["Integrante con voto","Invitado permanente","Participa ocasionalmente","No participa actualmente"];
+const CONOCIA=["Sí, y participé en su construcción o ejecución","Sí, la conozco","No la conocía"];
+const DECIS=[["mantener","Mantener","var(--d-mantener)"],["reformular","Reformular","var(--d-reformular)"],["fusionar","Fusionar","var(--d-fusionar)"],["eliminar","Eliminar","var(--d-eliminar)"]];
+const NUEVAS=["Reconstrucción y resiliencia territorial tras el sismo","Inteligencia artificial y transformación digital","Conectividad resiliente en las subregiones","Talento 4.0 y formación para el trabajo","Transferencia de conocimiento y emprendimiento de base tecnológica"];
+const POBL=["Mujeres","Jóvenes","Personas mayores","Comunidades étnicas","Personas con discapacidad","Población rural","Víctimas y población afectada por el sismo"];
+const MADUREZ=[["Idea","Problema y propuesta"],["Perfil","Alcance, costos y aliados"],["Formulado","En MGA con estudios"],["Viabilizado","Listo para aprobar"]];
+const FUENTES=["SGR · Asignación CTeI","Obras por Impuestos (ZOMAC)","Beneficios tributarios CTeI (CNBT)","Fondo de reconstrucción","Cooperación internacional","Recursos privados o propios"];
+const BARRERAS=["Falta de formuladores o MGA","Estudios técnicos pendientes","Sin contrapartida","Sin aliado ejecutor","Trámites de viabilización"];
+const ROLES=[["liderar","Liderar"],["coliderar","Co-liderar"],["cofinanciar","Cofinanciar"],["datos","Datos"],["infraestructura","Infraestructura"],["talento","Talento"]];
+const AJUSTES=[["secretaria","Secretaría técnica fortalecida en la SDEI","Dar continuidad y memoria al CODECTI"],["sillas","Sillas rotativas para alcaldes subregionales","Llevar la voz de las subregiones"],["mesas","Mesas técnicas por misión (M1, M2, M3)","Hacer seguimiento por tema con expertos"],["pmo","PMO departamental de estructuración de proyectos","Pasar de ideas a proyectos financiables"],["nodos","Nodos subregionales de CTeI","Descentralizar capacidades fuera de Manizales"],["parque","Parque Tecnológico como articulador (art. 10)","Operar programas y conectar academia y empresa"]];
+const P5B=["Tablero público en línea","Informe semestral en el CODECTI","Sesiones de rendición en las subregiones","Boletín digital"];
+const P5C=["Trimestral","Semestral","Anual"];
+const P5D=["Sí","No","Depende"];
+const STEPS=[
+ {k:"A",t:"¿Quién responde?",s:"Caracterización"},{k:"1",t:"Líneas",s:"P-04"},{k:"2",t:"Metas",s:"P-04"},{k:"3",t:"Proyectos",s:"P-05"},{k:"4",t:"Gobernanza",s:"P-06 · P-07"},{k:"5",t:"Seguimiento",s:"P-08"},{k:"✓",t:"Cierre",s:"Revisar y enviar"}];
+
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const CFG=window.CC_CONFIG||{}; const API=(CFG.apiUrl||"").trim();
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}}
+function lsSet(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function ssGet(k){try{return sessionStorage.getItem(k)||""}catch(e){return ""}}
+function ssSet(k,v){try{v?sessionStorage.setItem(k,v):sessionStorage.removeItem(k)}catch(e){}}
+const DKEY="caldasciencia.borrador", LKEY="caldasciencia.respuestas.local", AKEY="caldasciencia.admin";
+const slug=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+/* ================= CONTEXT RENDER ================= */
+(function(){
+  const max=4;
+  $("#ctxLineas").innerHTML=LINEAS.map(l=>`<div class="r"><b>${l.lbl}</b><div class="bar"><i style="width:calc(${l.p/max} * (100% - 210px));background:${MIS[l.m].c}"></i><span><strong>${l.p}</strong> ${esc(l.t)}</span></div></div>`).join("");
+  $("#ctxLidera").innerHTML=LIDERA.map(([n,v],i)=>`<div class="r wide"><span>${esc(n)}</span><div class="bar"><i style="width:calc(${v/28} * (100% - 40px));min-width:4px;background:${i?"var(--teal)":"var(--navy)"}"></i><span><strong>${v}</strong></span></div></div>`).join("");
+  $("#recoBody").innerHTML=RECO.map((r,i)=>`<tr><td><b class="code">${i+1}</b></td><td><strong>${esc(r[0])}</strong> ${esc(r[1])}</td><td>${r[2].map(p=>`<span class="tag">${p}</span>`).join("")}</td><td>${r[3]}</td></tr>`).join("");
+})();
+
+/* ================= FORM STATE ================= */
+function blank(){return{org:"",municipio:"",nombre:"",correo:"",cargo:"",telefono:"",actor:"",actorOtro:"",subregiones:[],codecti:"",conocia:"",misiones:[],
+ lineas:{},nuevas:[],nuevaOtra:"",p1c:"",metas:[{},{},{}],p2sub:[],p2pob:[],p2pobOtra:"",
+ proyectos:[{fuentes:[]},{fuentes:[]}],barreras:[],barreraOtra:"",anclas:[{roles:[]},{roles:[]},{roles:[]}],ajustes:{},p4c:"",
+ datos:[{},{},{}],p5b:[],p5bOtro:"",p5c:"",p5d:"",comentarios:"",autorizacion:false}}
+let F=Object.assign(blank(),lsGet(DKEY)||{}); let step=0;
+function save(){lsSet(DKEY,F);const s=$("#saveState");s.textContent="Avance guardado en este navegador";clearTimeout(save.t);save.t=setTimeout(()=>s.textContent="",2500)}
+
+/* builders */
+const ck=(name,val,checked,type="checkbox")=>`<label class="ck"><input type="${type}" name="${name}" value="${esc(val)}"${checked?" checked":""}><span>${esc(val)}</span></label>`;
+const ckOther=(name,val,checked,txtName,txt)=>`<label class="ck other"><input type="checkbox" name="${name}" value="__otro"${checked?" checked":""}><span>Otro:</span><input type="text" data-k="${txtName}" value="${esc(txt)}" aria-label="Especifique"></label>`;
+const inp=(k,label,v,type="text",req=false,ph="")=>`<label class="f">${label}${req?' <span class="req">*</span>':""}<input type="${type}" data-k="${k}" value="${esc(v)}"${ph?` placeholder="${esc(ph)}"`:""}${req?" required":""}></label>`;
+const know=(a,b)=>`<div class="know"><div><b class="eyebrow">Lo que sabemos</b>${a}</div><div><b class="eyebrow">Cómo responder</b>${b}</div></div>`;
+const qhead=(n,ey,t)=>`<div class="qhead"><i class="hex">${n}</i><div><span class="eyebrow">${ey}</span><h2>${t}</h2></div></div>`;
+const lineOpts=(sel)=>`<option value="">—</option>`+LINEAS.map(l=>`<option value="${l.k}"${sel===l.k?" selected":""}>${l.lbl} · ${esc(l.t)}</option>`).join("")+`<option value="nueva"${sel==="nueva"?" selected":""}>Línea nueva</option>`;
+
+function renderStep(){
+  const S=STEPS[step]; let h="";
+  if(step===0){
+    h=`<div class="qhead"><i class="hex">A</i><div><span class="eyebrow">Caracterización de la organización</span><h2>¿Quién responde?</h2><p style="color:#c8d6e6;font-size:15px;margin-top:4px">Permite leer las respuestas por subregión y tipo de actor.</p></div></div>
+    <div class="block"><div class="fields">
+      ${inp("org","Organización",F.org,"text",true)}${inp("municipio","Municipio sede",F.municipio)}
+      ${inp("nombre","Nombre de quien responde",F.nombre,"text",true)}${inp("correo","Correo electrónico",F.correo,"email",true)}
+      ${inp("cargo","Cargo",F.cargo)}${inp("telefono","Teléfono",F.telefono,"tel")}
+    </div></div>
+    <div class="block"><h3>A1 · Tipo de actor (marque uno) <span style="color:#b6452c">*</span></h3><div class="checks">
+      ${ACTORES.map(a=>ck("actor",a,F.actor===a,"radio")).join("")}
+      <label class="ck other"><input type="radio" name="actor" value="__otro"${F.actor==="__otro"?" checked":""}><span>Otro:</span><input type="text" data-k="actorOtro" value="${esc(F.actorOtro)}" aria-label="Otro tipo de actor"></label>
+    </div></div>
+    <div class="grid2" style="gap:22px">
+      <div class="block"><h3>A2 · Subregiones donde actúa <span style="color:#b6452c">*</span></h3><p class="hint">Marque las que apliquen.</p><div class="checks c2">${SUBREG.map(s=>ck("subregiones",s,F.subregiones.includes(s))).join("")}${ck("subregiones","Todo el departamento",F.subregiones.includes("Todo el departamento"))}</div></div>
+      <div class="block"><h3>A3 · Relación con el CODECTI</h3><div class="checks c2">${CODECTI.map(s=>ck("codecti",s,F.codecti===s,"radio")).join("")}</div>
+        <h3 style="margin-top:8px">A4 · ¿Conocía la Ordenanza 952 y su Plan de Acción?</h3><div class="checks c2">${CONOCIA.map(s=>ck("conocia",s,F.conocia===s,"radio")).join("")}</div></div>
+    </div>
+    <div class="block"><h3>A5 · ¿En qué misión tiene su organización mayor capacidad? (puede marcar varias)</h3><div class="checks">${Object.entries(MIS).map(([k,m])=>`<label class="ck"><input type="checkbox" name="misiones" value="${k}"${F.misiones.includes(k)?" checked":""}><span><strong>${k}</strong> ${esc(m.t)}</span></label>`).join("")}</div></div>`;
+  }
+  else if(step===1){
+    let rows="";let lastM="";
+    LINEAS.forEach(l=>{ if(l.m!==lastM){rows+=`<tr class="mis"><td colspan="7">${l.m} · ${esc(MIS[l.m].t)}</td></tr>`;lastM=l.m}
+      const v=F.lineas[l.k]||{};
+      rows+=`<tr><td><b>${l.lbl}</b></td><td>${esc(l.t)}</td>${DECIS.map(([d,D])=>`<td><input type="radio" name="d-${l.k}" value="${d}" aria-label="${D} ${l.lbl}"${v.d===d?" checked":""}></td>`).join("")}
+       <td><span class="seg3" role="radiogroup" aria-label="Prioridad ${l.lbl}">${[1,2,3].map(p=>`<label><input type="radio" name="p-${l.k}" value="${p}"${+v.p===p?" checked":""}><span>${p}</span></label>`).join("")}</span>${(v.d||v.p)?`<button type="button" class="clr" data-clr="${l.k}">borrar</button>`:""}</td></tr>`});
+    h=qhead("1","Pregunta 1 · Líneas estratégicas · Alimenta P-04","¿Cuáles son las líneas estratégicas de acción que considera que deberían tenerse en cuenta en la actualización del Plan de Acción de CTeI?")+
+    know("Solo <strong>3 de las 14 líneas</strong> avanzaron. L-3, L-7 y L-10 no tienen fuente de financiación identificada. Varias líneas repiten observatorios y sistemas de información.","Marque <strong>una decisión</strong> por línea y califique su <strong>prioridad</strong> de 1 (baja) a 3 (alta). Si no conoce la línea, déjela en blanco.")+
+    `<div class="block"><div class="scroll"><table class="ltable"><thead><tr><th>Línea</th><th>Nombre</th>${DECIS.map(d=>`<th>${d[1]}</th>`).join("")}<th>Prioridad</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+    <div class="grid2" style="gap:22px">
+      <div class="block"><h3>1B · ¿Qué línea nueva debería incorporarse?</h3><div class="checks" style="grid-template-columns:1fr">${NUEVAS.map(n=>ck("nuevas",n,F.nuevas.includes(n))).join("")}${ckOther("nuevas","",F.nuevas.includes("__otro"),"nuevaOtra",F.nuevaOtra)}</div></div>
+      <div class="block"><h3>1C · Si marcó «reformular» o «fusionar», ¿cómo?</h3><p class="example">Ej.: Fusionar L-3 y L-4 en una línea de economía creativa y especialización municipal con un observatorio único.</p><textarea data-k="p1c" rows="6" aria-label="Cómo reformular o fusionar">${esc(F.p1c)}</textarea></div>
+    </div>`;
+  }
+  else if(step===2){
+    h=qhead("2","Pregunta 2 · Metas e indicadores · Alimenta P-04","Para las líneas que usted priorizó, ¿qué meta concreta y medible propone, en qué subregión y para qué población?")+
+    know("El plan vigente tiene <strong>metas genéricas</strong> sin línea base ni responsable, y los <strong>22 compromisos</strong> están vencidos. La evaluación recomienda metas por subregión, con enfoque diferencial y cortes en 2027, 2030 y 2033.","Una buena meta dice <strong>qué</strong> cambia, <strong>cuánto</strong>, <strong>dónde</strong>, <strong>para quién</strong> y <strong>para cuándo</strong>. Use el ejemplo como guía. Registre hasta tres metas.")+
+    `<p class="example"><strong>Ejemplo ilustrativo (cifras no oficiales):</strong> L-11 · Conectar con internet de alta velocidad las sedes educativas rurales del Alto Oriente · Indicador: % de sedes rurales conectadas · Línea base 12 % · 2027: 40 % · 2030: 75 % · 2033: 100 %</p>`+
+    F.metas.map((m,i)=>`<div class="rowcard"><header><b>Meta ${i+1}</b></header>
+      <div class="fields"><label class="f">Línea<select data-k="metas.${i}.linea">${lineOpts(m.linea)}</select></label>${inp(`metas.${i}.indicador`,"Indicador",m.indicador,"text",false,"Ej.: % de sedes rurales conectadas")}</div>
+      <label class="f">Meta propuesta<textarea data-k="metas.${i}.meta" rows="2" placeholder="Qué cambia, cuánto, dónde y para quién">${esc(m.meta)}</textarea></label>
+      <div class="fields g4">${inp(`metas.${i}.base`,"Línea base",m.base)}${inp(`metas.${i}.m2027`,"2027",m.m2027)}${inp(`metas.${i}.m2030`,"2030",m.m2030)}${inp(`metas.${i}.m2033`,"2033",m.m2033)}</div></div>`).join("")+
+    `<div class="grid2" style="gap:22px">
+      <div class="block"><h3>2B · ¿En qué subregión debería concentrarse el esfuerzo?</h3><div class="checks c2">${SUBREG.map(s=>ck("p2sub",s,F.p2sub.includes(s))).join("")}</div></div>
+      <div class="block"><h3>2C · ¿Qué población debe priorizarse? (enfoque diferencial)</h3><div class="checks c2">${POBL.map(s=>ck("p2pob",s,F.p2pob.includes(s))).join("")}${ckOther("p2pob","",F.p2pob.includes("__otro"),"p2pobOtra",F.p2pobOtra)}</div></div>
+    </div>`;
+  }
+  else if(step===3){
+    h=qhead("3","Pregunta 3 · Proyectos y financiación · Alimenta P-05","¿Qué proyecto o iniciativa de CTeI debería entrar al portafolio prioritario, en qué estado de madurez está y con qué fuente podría financiarse?")+
+    know("Hay <strong>$23.400 M del SGR CTeI congelados</strong> y solo <strong>11 de cada 100 ideas</strong> llegan a desembolso. El problema no es la plata: es la estructuración.","Registre hasta <strong>dos proyectos</strong>. Ubique su madurez en la escalera y marque todas las fuentes posibles. Si es solo una idea, también cuenta.")+
+    `<div class="block"><h3>Escalera de madurez de un proyecto</h3><div class="ladder">${MADUREZ.map(([a,b],i)=>`<div style="background:${["#dfe6ee","var(--sky)","var(--teal)","var(--navy)"][i]};color:${i?"#fff":"var(--navy)"}"><b>${i+1} · ${a}</b>${b}</div>`).join("")}</div></div>
+    <div class="grid2" style="gap:22px">`+
+    F.proyectos.map((p,i)=>`<div class="rowcard" style="border-top:4px solid ${i?"var(--lime)":"var(--teal)"}"><header><b>Proyecto ${"AB"[i]}</b></header>
+      ${inp(`proyectos.${i}.nombre`,"Nombre",p.nombre)}
+      <div class="fields">${inp(`proyectos.${i}.lineas`,"Línea(s)",p.lineas,"text",false,"Ej.: L-2, L-5")}<label class="f">Subregión<select data-k="proyectos.${i}.subregion"><option value="">—</option>${SUBREG.concat(["Todo el departamento"]).map(s=>`<option${p.subregion===s?" selected":""}>${s}</option>`).join("")}</select></label>
+      ${inp(`proyectos.${i}.valor`,"Valor estimado ($)",p.valor,"text",false,"Ej.: 1.200.000.000")}${inp(`proyectos.${i}.contrapartida`,"Contrapartida ($)",p.contrapartida)}</div>
+      ${inp(`proyectos.${i}.aliados`,"Aliados",p.aliados)}
+      <div><b style="font:700 14.5px var(--body);color:var(--navy)">Madurez</b><div class="checks c2" style="margin-top:6px">${MADUREZ.map(([a],j)=>`<label class="ck"><input type="radio" name="madurez${i}" value="${j+1}"${+p.madurez===j+1?" checked":""}><span>${j+1} · ${a}</span></label>`).join("")}</div></div>
+      <div><b style="font:700 14.5px var(--body);color:var(--navy)">Fuentes posibles</b><div class="checks" style="margin-top:6px;grid-template-columns:1fr">${FUENTES.map(f=>`<label class="ck"><input type="checkbox" name="fuentes${i}" value="${esc(f)}"${(p.fuentes||[]).includes(f)?" checked":""}><span>${esc(f)}</span></label>`).join("")}</div></div>
+    </div>`).join("")+`</div>
+    <div class="block"><h3>3B · ¿Qué le impide hoy pasar al siguiente escalón? (marque las principales)</h3><div class="checks">${BARRERAS.map(b=>ck("barreras",b,F.barreras.includes(b))).join("")}${ckOther("barreras","",F.barreras.includes("__otro"),"barreraOtra",F.barreraOtra)}</div></div>`;
+  }
+  else if(step===4){
+    h=qhead("4","Pregunta 4 · Gobernanza · Alimenta P-06 y P-07","¿Quién debería liderar cada línea priorizada, qué compromiso asume su organización y qué cambio necesita el CODECTI para que el plan se ejecute?")+
+    know("Las metas del plan vigente <strong>no tuvieron dueño</strong>. La evaluación propone un <strong>actor ancla</strong> por línea, con capacidad instalada, y un CODECTI operativo (Decreto 114 de 2025).","Proponga actores ancla con <strong>nombre propio</strong> y marque el rol que su organización estaría dispuesta a asumir. Sus compromisos se validarán en el CODECTI.")+
+    `<div class="block"><h3>4A · Actor ancla y compromiso de su organización</h3><p class="example">Ej.: L-2 · Centro de bioinformática o IES con capacidad en biodiversidad · Co-liderar, Datos, Infraestructura.</p>`+
+    F.anclas.map((a,i)=>`<div class="rowcard"><header><b>Línea ${i+1}</b></header><div class="fields"><label class="f">Línea<select data-k="anclas.${i}.linea">${lineOpts(a.linea)}</select></label>${inp(`anclas.${i}.actor`,"Actor ancla propuesto",a.actor,"text",false,"Nombre de la institución")}</div>
+      <div><b style="font:700 14px var(--body);color:var(--navy)">Rol que asumiría su organización</b><div class="checks c2" style="margin-top:6px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))">${ROLES.map(([k,t])=>`<label class="ck"><input type="checkbox" name="roles${i}" value="${k}"${(a.roles||[]).includes(k)?" checked":""}><span>${t}</span></label>`).join("")}</div></div></div>`).join("")+`</div>
+    <div class="block"><h3>4B · ¿Qué ajustes de gobernanza son más urgentes?</h3><p class="hint">Califique de 1 (poco) a 3 (indispensable).</p><div class="scroll"><table class="ltable" style="min-width:600px"><thead><tr><th>Ajuste propuesto</th><th>Para qué sirve</th><th>Prioridad</th></tr></thead><tbody>
+      ${AJUSTES.map(([k,a,b])=>`<tr><td style="text-align:left"><strong>${esc(a)}</strong></td><td style="text-align:left">${esc(b)}</td><td><span class="seg3" role="radiogroup" aria-label="Prioridad ${esc(a)}">${[1,2,3].map(p=>`<label><input type="radio" name="aj-${k}" value="${p}"${+F.ajustes[k]===p?" checked":""}><span>${p}</span></label>`).join("")}</span></td></tr>`).join("")}
+    </tbody></table></div></div>
+    <div class="block"><h3>4C · ¿Qué condición pondría su organización para comprometerse?</h3><p class="example">Ej.: Co-liderar la línea si se firma un acuerdo de uso de datos y se asigna contrapartida del SGR.</p><textarea data-k="p4c" rows="4" aria-label="Condición para comprometerse">${esc(F.p4c)}</textarea></div>`;
+  }
+  else if(step===5){
+    h=qhead("5","Pregunta 5 · Seguimiento y evaluación · Alimenta P-08","¿Qué información puede aportar su organización para medir el avance del plan y cómo le gustaría conocer los resultados?")+
+    know("Sin seguimiento, los compromisos vencieron sin alarma. La Ordenanza exige <strong>dos sesiones anuales</strong> de control en el CODECTI, y el IDIC muestra una eficiencia de <strong>0,629</strong>.","Piense en los datos que su organización <strong>ya produce</strong>. Un tablero solo funciona si alguien lo alimenta con regularidad.")+
+    `<div class="block"><h3>5A · Inventario de datos que su organización puede reportar</h3><p class="example">Ej.: Número de estudiantes en programas de IA y TIC · L-11, L-14 · Semestral · Municipio, sexo, edad.</p>`+
+    F.datos.map((d,i)=>`<div class="fields g4">${inp(`datos.${i}.dato`,`Dato o indicador ${i+1}`,d.dato)}${inp(`datos.${i}.lineas`,"Línea(s)",d.lineas)}<label class="f">Frecuencia<select data-k="datos.${i}.frecuencia"><option value="">—</option>${["Mensual","Trimestral","Semestral","Anual"].map(x=>`<option${d.frecuencia===x?" selected":""}>${x}</option>`).join("")}</select></label>${inp(`datos.${i}.desag`,"Desagregación disponible",d.desag)}</div>`).join("")+`</div>
+    <div class="grid2" style="gap:22px">
+      <div class="block"><h3>5B · ¿Cómo quiere conocer el avance?</h3><div class="checks" style="grid-template-columns:1fr">${P5B.map(s=>ck("p5b",s,F.p5b.includes(s))).join("")}${ckOther("p5b","",F.p5b.includes("__otro"),"p5bOtro",F.p5bOtro)}</div></div>
+      <div class="block"><h3>5C · ¿Con qué frecuencia?</h3><div class="checks c2">${P5C.map(s=>ck("p5c",s,F.p5c===s,"radio")).join("")}</div>
+        <h3 style="margin-top:8px">5D · ¿Estaría dispuesto a firmar un acuerdo de intercambio de datos?</h3><div class="checks c2">${P5D.map(s=>ck("p5d",s,F.p5d===s,"radio")).join("")}</div></div>
+    </div>
+    <div class="grid3"><div class="rule g"><span class="eyebrow">Gestión</span><p style="font-size:15px">¿Se hizo lo prometido? Productos entregados, recursos comprometidos y ejecutados.</p></div><div class="rule"><span class="eyebrow">Resultado</span><p style="font-size:15px">¿Cambió algo en el territorio? Metas por línea, subregión y población.</p></div><div class="rule g"><span class="eyebrow">Impacto</span><p style="font-size:15px">¿Avanza Caldas? Índices de la Ordenanza: IDIC y Competitividad de Ciudades.</p></div></div>`;
+  }
+  else if(step===6){
+    const R=reviewItems();
+    h=`<div class="qhead"><i class="hex">✓</i><div><span class="eyebrow">Cierre</span><h2>Su aporte construye la hoja de ruta</h2></div></div>
+    <div class="block"><h3>Comentarios adicionales</h3><p class="hint">¿Algo que no hayamos preguntado y que deba tenerse en cuenta en la actualización del plan?</p><textarea data-k="comentarios" rows="5" aria-label="Comentarios adicionales">${esc(F.comentarios)}</textarea></div>
+    <div class="block"><h3>Revise antes de enviar</h3><ul class="review">${R.map(r=>`<li class="${r.ok?"ok":""}"><i aria-hidden="true">${r.ok?"✓":""}</i><span>${r.t}</span><span class="sr">${r.ok?"completo":"pendiente"}</span></li>`).join("")}</ul>
+      <p class="hint" style="margin-top:4px">Solo la caracterización (Sección A) y la autorización son obligatorias; lo demás suma valor a la consulta.</p></div>
+    <label class="consent" id="consentBox"><input type="checkbox" data-k="autorizacion"${F.autorizacion?" checked":""}><span>Autorizo el tratamiento de los datos suministrados para los fines de la actualización del Plan de Acción de CTeI de Caldas, conforme a la Ley 1581 de 2012${CFG.politicaDatosUrl?` y la <a href="${esc(CFG.politicaDatosUrl)}" target="_blank" rel="noopener">política de tratamiento de datos</a>`:""}. Los resultados se presentan de forma agregada. <span style="color:#b6452c">*</span></span></label>
+    <input type="text" id="hpField" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div id="sendMsg" class="notice" hidden></div>`;
+  }
+  $("#stepBody").innerHTML=h;
+  // nav
+  $("#stepNav").innerHTML=STEPS.map((s,i)=>`<li><button type="button" data-step="${i}"${i===step?' aria-current="step"':""} class="${stepDone(i)&&i!==step?"done":""}"><i class="hex">${s.k}</i>${esc(s.t)}</button></li>`).join("");
+  $("#progBar").style.width=(step/(STEPS.length-1)*100)+"%";
+  $("#prevBtn").style.visibility=step?"visible":"hidden";
+  const nb=$("#nextBtn"); nb.textContent=step===STEPS.length-1?(mode==="local"?"Guardar respuesta":"Enviar respuesta"):"Siguiente →";
+  nb.disabled=false;
+  $$("#stepBody [data-clr]").forEach(b=>b.addEventListener("click",()=>{delete F.lineas[b.dataset.clr];save();renderStep()}));
+}
+function stepDone(i){
+  if(i===0)return !!(F.org&&F.nombre&&F.correo&&F.actor&&F.subregiones.length);
+  if(i===1)return Object.values(F.lineas).some(v=>v.d);
+  if(i===2)return F.metas.some(m=>m.meta);
+  if(i===3)return F.proyectos.some(p=>p.nombre);
+  if(i===4)return F.anclas.some(a=>a.linea||(a.roles||[]).length)||Object.keys(F.ajustes).length>0;
+  if(i===5)return F.datos.some(d=>d.dato)||F.p5b.length>0||!!F.p5c;
+  return false;
+}
+function reviewItems(){return[
+ {t:"Completé la caracterización (Sección A)",ok:stepDone(0)},{t:"Registré al menos un proyecto o idea",ok:stepDone(3)},
+ {t:"Marqué una decisión para las líneas que conozco",ok:stepDone(1)},{t:"Indiqué el compromiso de mi organización",ok:F.anclas.some(a=>(a.roles||[]).length)},
+ {t:"Propuse al menos una meta medible",ok:stepDone(2)},{t:"Autoricé el tratamiento de datos",ok:!!F.autorizacion}]}
+
+/* bind inputs (delegated) */
+function setPath(obj,path,val){const ks=path.split(".");let o=obj;for(let i=0;i<ks.length-1;i++){o=o[ks[i]]}o[ks[ks.length-1]]=val}
+$("#qForm").addEventListener("input",e=>{
+  const t=e.target;
+  if(t.dataset.k){setPath(F,t.dataset.k,t.type==="checkbox"?t.checked:t.value.slice(0,2000));
+    if(t.dataset.k==="autorizacion")$("#consentBox")?.classList.remove("missing");
+    // typing in "otro" text auto-checks its box
+    const box=t.closest(".ck.other")?.querySelector("input[type=checkbox],input[type=radio]");
+    if(box&&t.value&&!box.checked){box.checked=true;box.dispatchEvent(new Event("change",{bubbles:true}))}
+    save();return}
+});
+$("#qForm").addEventListener("change",e=>{
+  const t=e.target,n=t.name; if(!n)return;
+  const multi=(arr,v,on)=>{const s=new Set(arr);on?s.add(v):s.delete(v);return[...s]};
+  let m;
+  if(["subregiones","misiones","nuevas","p2sub","p2pob","barreras","p5b"].includes(n))F[n]=multi(F[n],t.value,t.checked);
+  else if(["actor","codecti","conocia","p5c","p5d"].includes(n))F[n]=t.value;
+  else if(m=n.match(/^d-(L\d+)$/)){F.lineas[m[1]]=Object.assign({},F.lineas[m[1]],{d:t.value});save();renderStepKeep();return}
+  else if(m=n.match(/^p-(L\d+)$/)){F.lineas[m[1]]=Object.assign({},F.lineas[m[1]],{p:+t.value});save();renderStepKeep();return}
+  else if(m=n.match(/^madurez(\d)$/))F.proyectos[m[1]].madurez=+t.value;
+  else if(m=n.match(/^fuentes(\d)$/))F.proyectos[m[1]].fuentes=multi(F.proyectos[m[1]].fuentes||[],t.value,t.checked);
+  else if(m=n.match(/^roles(\d)$/))F.anclas[m[1]].roles=multi(F.anclas[m[1]].roles||[],t.value,t.checked);
+  else if(m=n.match(/^aj-(\w+)$/))F.ajustes[m[1]]=+t.value;
+  save();
+});
+function renderStepKeep(){const y=scrollY;const a=document.activeElement?.name;renderStep();scrollTo(0,y);if(a){const el=document.querySelector(`[name="${a}"]:checked`);el&&el.focus({preventScroll:true})}}
+$("#stepNav").addEventListener("click",e=>{const b=e.target.closest("[data-step]");if(b){goStep(+b.dataset.step)}});
+function goStep(i){step=Math.max(0,Math.min(STEPS.length-1,i));renderStep();const top=$("#v-consulta").offsetTop;scrollTo({top,behavior:"smooth"});const h=$("#stepBody h2");h&&h.setAttribute("tabindex","-1");setTimeout(()=>h&&h.focus({preventScroll:true}),50)}
+$("#prevBtn").addEventListener("click",()=>goStep(step-1));
+$("#nextBtn").addEventListener("click",async()=>{
+  if(step===0&&!stepDone(0)){
+    renderStep();const miss=[];if(!F.org)miss.push("organización");if(!F.nombre)miss.push("nombre");if(!F.correo)miss.push("correo");if(!F.actor)miss.push("tipo de actor");if(!F.subregiones.length)miss.push("subregiones");
+    $("#stepBody").insertAdjacentHTML("afterbegin",`<div class="notice warn" role="alert">Para continuar complete: ${miss.join(", ")}.</div>`);scrollTo({top:$("#v-consulta").offsetTop,behavior:"smooth"});return}
+  if(step===0&&F.correo&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(F.correo)){renderStep();$("#stepBody").insertAdjacentHTML("afterbegin",`<div class="notice warn" role="alert">Revise el correo electrónico.</div>`);return}
+  if(step<STEPS.length-1){goStep(step+1);return}
+  // submit
+  const msg=$("#sendMsg");
+  if(!stepDone(0)){msg.hidden=false;msg.className="notice warn";msg.textContent="Falta completar la caracterización (Sección A).";return}
+  if(!F.autorizacion){$("#consentBox").classList.add("missing");msg.hidden=false;msg.className="notice warn";msg.textContent="Debe autorizar el tratamiento de datos para enviar.";return}
+  const nb=$("#nextBtn");nb.disabled=true;msg.hidden=false;msg.className="notice";msg.textContent="Enviando…";
+  const rec=clean(JSON.parse(JSON.stringify(F)));rec.hp=$("#hpField").value;
+  try{await saveRecord(rec);lsSet(DKEY,null);F=blank();step=0;
+    $("#stepBody").innerHTML=`<div class="card thanks"><i class="hex">✓</i><h2>¡Gracias por construir territorio con nosotros!</h2><p class="muted" style="max-width:56ch">Su respuesta quedó registrada. Será consolidada por CDTER y validada en la sesión del CODECTI como insumo de los productos P-04 a P-08.</p><div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><a class="btn" href="#resultados">Ver resultados agregados</a><button type="button" class="btn ghost small" style="color:var(--navy)" onclick="goStep(0)">Registrar otra organización</button></div></div>`;
+    $("#prevBtn").style.visibility="hidden";nb.style.visibility="hidden";$("#progBar").style.width="100%";scrollTo({top:$("#v-consulta").offsetTop,behavior:"smooth"});
+  }catch(err){nb.disabled=false;msg.className="notice err";msg.textContent="No se pudo enviar"+(err&&err.message?" ("+err.message+")":"")+". Revise su conexión e intente de nuevo; sus respuestas siguen guardadas."}
+});
+function clean(r){
+  r.metas=r.metas.filter(m=>m.meta||m.indicador||m.linea);
+  r.proyectos=r.proyectos.filter(p=>p.nombre||p.madurez||(p.fuentes||[]).length);
+  r.anclas=r.anclas.filter(a=>a.linea||a.actor||(a.roles||[]).length);
+  r.datos=r.datos.filter(d=>d.dato);
+  Object.keys(r.lineas).forEach(k=>{if(!r.lineas[k].d&&!r.lineas[k].p)delete r.lineas[k]});
+  return r;
+}
+
+/* ================= STORE ================= */
+let records=[], mode="loading", adminKey=ssGet(AKEY);
+const isAdmin=()=>!!adminKey;
+function setSync(t){$("#syncState").textContent=t}
+async function apiGet(params){const u=new URL(API);Object.entries(params).forEach(([k,v])=>u.searchParams.set(k,v));const r=await fetch(u,{cache:"no-store"});const j=await r.json();if(!j.ok)throw new Error(j.error||"error del servidor");return j}
+async function apiPost(body){const r=await fetch(API,{method:"POST",body:JSON.stringify(body)});const j=await r.json();if(!j.ok)throw new Error(j.error||"error del servidor");return j}
+async function load(){
+  if(!API){mode="local";records=lsGet(LKEY)||[];setSync("Modo demostración: falta conectar la base de datos (config.js)");renderResults();return}
+  try{const j=await apiGet(adminKey?{action:"list",key:adminKey}:{action:"list"});records=j.records||[];mode="db";setSync(`En línea · ${records.length} respuesta(s)`+(isAdmin()?" · administrador":""))}
+  catch(e){if(adminKey&&/clave/i.test(e.message||"")){adminKey="";ssSet(AKEY,"");refreshAdmin();return load()}mode="db";setSync("Sin conexión con la base de datos")}
+  renderResults();
+}
+async function saveRecord(rec){
+  if(mode==="local"){delete rec.hp;rec.id="L"+Date.now();rec.creado=new Date().toISOString();records.push(rec);lsSet(LKEY,records);renderResults();return rec.id}
+  const j=await apiPost({action:"create",record:rec});await load();return j.id;
+}
+async function deleteRecord(id){
+  if(mode==="local"){records=records.filter(r=>r.id!==id);lsSet(LKEY,records);renderResults();return}
+  await apiPost({action:"delete",id,key:adminKey});await load();
+}
+
+/* ================= RESULTS ================= */
+function count(list){const m=new Map();list.forEach(v=>{if(v)m.set(v,(m.get(v)||0)+1)});return m}
+function hbars(entries,{total,color="var(--teal)",wide=true}={}){
+  const max=Math.max(1,...entries.map(e=>e[1]));
+  return `<div class="hb">${entries.map(([k,v])=>`<div class="r ${wide?"wide":"mid"}"><span title="${esc(k)}">${esc(k)}</span><div class="bar"><i style="width:calc(${v/max} * (100% - 70px));min-width:${v?4:0}px;background:${color}"></i><span><strong>${v}</strong>${total?` · ${Math.round(v/total*100)} %`:""}</span></div></div>`).join("")}</div>`;
+}
+function renderResults(){
+  const N=records.length, R=records;
+  const subs=new Set(R.flatMap(r=>r.subregiones||[]));
+  const nProj=R.reduce((a,r)=>a+(r.proyectos||[]).length,0), nMet=R.reduce((a,r)=>a+(r.metas||[]).length,0);
+  const nRoles=R.filter(r=>(r.anclas||[]).some(a=>(a.roles||[]).length)).length;
+  $("#kpis").innerHTML=[[N,"respuestas recibidas","",""],[subs.has("Todo el departamento")?6:subs.size,"de 6 subregiones representadas","t"],[nMet,"metas propuestas","s"],[nProj,"proyectos o ideas","l"],[nRoles,"organizaciones con compromiso",""]].map(([v,l,c])=>`<div class="stat ${c}"><b>${v}</b><span>${l}</span></div>`).join("");
+  const B=$("#resBody");
+  if(!N){B.innerHTML=`<div class="empty"><strong>${mode==="loading"?"Cargando resultados…":"Aún no hay respuestas."}</strong><span>Los resultados agregados aparecerán a medida que las organizaciones respondan la consulta.</span><a class="btn small" href="#consulta">Responder la consulta</a></div>`;renderAdmin();return}
+  const actorLbl=r=>r.actor==="__otro"?"Otro":r.actor;
+  // P1 stacked
+  const lineRows=LINEAS.map(l=>{const vs=R.map(r=>(r.lineas||{})[l.k]).filter(Boolean);const c={};DECIS.forEach(([d])=>c[d]=vs.filter(v=>v.d===d).length);const ps=vs.map(v=>+v.p).filter(Boolean);const tot=Object.values(c).reduce((a,b)=>a+b,0);
+    return{l,c,tot,avg:ps.length?(ps.reduce((a,b)=>a+b,0)/ps.length):0}});
+  const maxTot=Math.max(1,...lineRows.map(x=>x.tot));
+  const stack=`<div class="stack">${lineRows.map(({l,c,tot,avg})=>`<div class="r"><span class="lbl"><b>${l.lbl}</b>${esc(l.t)}</span><div class="bar" role="img" aria-label="${l.lbl}: ${DECIS.map(([d,D])=>`${D} ${c[d]}`).join(", ")}" style="width:calc(${Math.max(tot,0)/maxTot*100}% );min-width:${tot?0:100}%">${tot?DECIS.map(([d,D,col])=>c[d]?`<i title="${D}: ${c[d]}" style="width:${c[d]/tot*100}%;background:${col}"></i>`:"").join(""):""}</div><span class="pr" title="Prioridad promedio">${avg?avg.toFixed(1):"–"}</span></div>`).join("")}</div>
+    <div class="legend">${DECIS.map(([d,D,col])=>`<span style="--c:${col}"><i></i>${D}</span>`).join("")}<span>· Columna derecha: prioridad promedio (1 a 3)</span></div>`;
+  const nuevas=[...count(R.flatMap(r=>(r.nuevas||[]).map(n=>n==="__otro"?"Otra":n)))].sort((a,b)=>b[1]-a[1]);
+  const actores=[...count(R.map(actorLbl))].sort((a,b)=>b[1]-a[1]);
+  const subA=[...count(R.flatMap(r=>r.subregiones||[]))].sort((a,b)=>b[1]-a[1]);
+  const p2s=SUBREG.map(s=>[s,R.filter(r=>(r.p2sub||[]).includes(s)).length]).sort((a,b)=>b[1]-a[1]);
+  const p2p=[...count(R.flatMap(r=>(r.p2pob||[]).map(n=>n==="__otro"?"Otra":n)))].sort((a,b)=>b[1]-a[1]);
+  const proys=R.flatMap(r=>r.proyectos||[]);
+  const mad=MADUREZ.map(([a],i)=>[`${i+1} · ${a}`,proys.filter(p=>+p.madurez===i+1).length]);
+  const fu=FUENTES.map(f=>[f,proys.filter(p=>(p.fuentes||[]).includes(f)).length]).sort((a,b)=>b[1]-a[1]);
+  const ba=[...count(R.flatMap(r=>(r.barreras||[]).map(n=>n==="__otro"?"Otra":n)))].sort((a,b)=>b[1]-a[1]);
+  const aj=AJUSTES.map(([k,a])=>{const v=R.map(r=>+(r.ajustes||{})[k]).filter(Boolean);return[a,v.length?v.reduce((x,y)=>x+y,0)/v.length:0,v.length]}).sort((a,b)=>b[1]-a[1]);
+  const roles=ROLES.map(([k,t])=>[t,R.filter(r=>(r.anclas||[]).some(a=>(a.roles||[]).includes(k))).length]);
+  const anclaL=[...count(R.flatMap(r=>(r.anclas||[]).map(a=>a.linea).filter(Boolean)).map(k=>k==="nueva"?"Línea nueva":(LINEAS.find(l=>l.k===k)||{}).lbl))].sort((a,b)=>b[1]-a[1]);
+  const p5b=[...count(R.flatMap(r=>(r.p5b||[]).map(n=>n==="__otro"?"Otro":n)))].sort((a,b)=>b[1]-a[1]);
+  const p5c=P5C.map(s=>[s,R.filter(r=>r.p5c===s).length]), p5d=P5D.map(s=>[s,R.filter(r=>r.p5d===s).length]);
+  const conoc=CONOCIA.map(s=>[s,R.filter(r=>r.conocia===s).length]);
+  B.innerHTML=`
+   <div class="grid2" style="gap:22px">
+    <div class="chart"><h3>¿Quién respondió?</h3><p class="sub">Tipo de actor</p>${hbars(actores,{total:N})}</div>
+    <div class="chart"><h3>¿Dónde actúan?</h3><p class="sub">Subregiones donde actúan las organizaciones</p>${hbars(subA,{total:N,color:"var(--sky)"})}
+      <h3 style="margin-top:8px;font-size:16px">¿Conocían la Ordenanza 952?</h3>${hbars(conoc,{total:N,color:"var(--navy)"})}</div>
+   </div>
+   <div class="chart"><span class="eyebrow">Pregunta 1 · Líneas estratégicas</span><h3>Qué hacer con cada línea</h3><p class="sub">Decisiones marcadas por las organizaciones y prioridad promedio.</p>${stack}</div>
+   <div class="grid2" style="gap:22px">
+    <div class="chart"><span class="eyebrow">1B · Líneas nuevas</span><h3>Qué línea nueva incorporar</h3>${nuevas.length?hbars(nuevas,{total:N,color:"var(--lime)"}):'<p class="muted">Sin propuestas aún.</p>'}</div>
+    <div class="chart"><span class="eyebrow">Pregunta 2 · Metas</span><h3>Dónde y para quién</h3><p class="sub">Subregiones donde concentrar el esfuerzo</p>${hbars(p2s,{total:N,color:"var(--teal)"})}<h3 style="font-size:16px;margin-top:8px">Poblaciones a priorizar</h3>${p2p.length?hbars(p2p,{total:N,color:"var(--sky)"}):'<p class="muted">Sin respuestas aún.</p>'}</div>
+   </div>
+   <div class="grid3">
+    <div class="chart"><span class="eyebrow">Pregunta 3 · Proyectos</span><h3>Madurez de los ${proys.length} proyectos</h3>${hbars(mad,{color:"var(--navy)",wide:false})}</div>
+    <div class="chart"><span class="eyebrow">Fuentes posibles</span><h3>Con qué financiarlos</h3>${hbars(fu,{color:"var(--lime)"})}</div>
+    <div class="chart"><span class="eyebrow">3B · Barreras</span><h3>Qué impide avanzar</h3>${ba.length?hbars(ba,{color:"var(--ochre)"}):'<p class="muted">Sin respuestas aún.</p>'}</div>
+   </div>
+   <div class="grid2" style="gap:22px">
+    <div class="chart"><span class="eyebrow">Pregunta 4 · Gobernanza</span><h3>Ajustes más urgentes</h3><p class="sub">Prioridad promedio de 1 (poco) a 3 (indispensable)</p>
+      <div class="hb">${aj.map(([a,v,n])=>`<div class="r wide"><span title="${esc(a)}">${esc(a)}</span><div class="bar"><i style="width:calc(${v/3} * (100% - 90px));min-width:${v?4:0}px;background:var(--navy)"></i><span><strong>${v?v.toFixed(1):"–"}</strong> · ${n} resp.</span></div></div>`).join("")}</div></div>
+    <div class="chart"><span class="eyebrow">4A · Compromisos</span><h3>Qué roles ofrecen las organizaciones</h3>${hbars(roles,{total:N,color:"var(--teal)"})}<h3 style="font-size:16px;margin-top:8px">Líneas con actor ancla propuesto</h3>${anclaL.length?hbars(anclaL,{color:"var(--lime)",wide:false}):'<p class="muted">Sin propuestas aún.</p>'}</div>
+   </div>
+   <div class="grid3">
+    <div class="chart"><span class="eyebrow">Pregunta 5 · Seguimiento</span><h3>Cómo conocer el avance</h3>${p5b.length?hbars(p5b,{total:N,color:"var(--sky)"}):'<p class="muted">Sin respuestas aún.</p>'}</div>
+    <div class="chart"><span class="eyebrow">5C · Frecuencia</span><h3>Cada cuánto</h3>${hbars(p5c,{total:N,color:"var(--teal)",wide:false})}</div>
+    <div class="chart"><span class="eyebrow">5D · Intercambio de datos</span><h3>¿Firmaría un acuerdo?</h3>${hbars(p5d,{total:N,color:"var(--lime)",wide:false})}</div>
+   </div>`;
+  renderAdmin();
+}
+
+/* ================= ADMIN ================= */
+function refreshAdmin(){
+  $("#adminToggle").parentElement.hidden=isAdmin();
+  $("#adminTools").classList.toggle("open",isAdmin());
+  if(isAdmin())$("#adminBox").classList.remove("open");
+}
+function renderAdmin(){
+  const P=$("#adminPanel"); if(!isAdmin()&&mode!=="local"){P.hidden=true;return}
+  if(mode==="local"&&!isAdmin()){P.hidden=true;return}
+  P.hidden=false;
+  P.innerHTML=`<div class="chart"><span class="eyebrow">Solo administrador</span><h3>Respuestas individuales (${records.length})</h3><div class="scroll"><table class="admin-list"><thead><tr><th>Fecha</th><th>Organización</th><th>Tipo de actor</th><th>Responde</th><th>Correo</th><th></th></tr></thead><tbody>
+   ${records.map(r=>`<tr><td>${esc((r.creado||"").slice(0,10))}</td><td><strong>${esc(r.org)}</strong><br><span class="muted">${esc(r.municipio)}</span></td><td>${esc(r.actor==="__otro"?r.actorOtro||"Otro":r.actor)}</td><td>${esc(r.nombre)}<br><span class="muted">${esc(r.cargo)}</span></td><td>${esc(r.correo)}</td><td><button type="button" class="btn danger small" data-del="${esc(r.id)}">Eliminar</button></td></tr>`).join("")}
+  </tbody></table></div></div>`;
+  P.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",async()=>{
+    if(b.dataset.confirm!=="1"){b.dataset.confirm="1";b.textContent="¿Confirmar?";setTimeout(()=>{if(b.isConnected){b.dataset.confirm="";b.textContent="Eliminar"}},4000);return}
+    b.disabled=true;try{await deleteRecord(b.dataset.del)}catch(e){b.textContent="Error";b.disabled=false}}));
+}
+function adminMsg(t){$("#adminMsg").textContent=t||""}
+$("#adminToggle").addEventListener("click",()=>{const b=$("#adminBox");b.classList.toggle("open");if(b.classList.contains("open"))$("#adminKey").focus()});
+async function adminLogin(){const k=$("#adminKey").value.trim();if(!k)return;if(!API){adminMsg("Primero conecte la base de datos en config.js.");return}
+  adminMsg("Verificando…");try{await apiPost({action:"check",key:k});adminKey=k;ssSet(AKEY,k);$("#adminKey").value="";adminMsg("");refreshAdmin();await load();location.hash="#resultados"}catch(e){adminMsg("Clave incorrecta.")}}
+$("#adminIn").addEventListener("click",adminLogin);
+$("#adminKey").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();adminLogin()}});
+$("#adminOut").addEventListener("click",()=>{adminKey="";ssSet(AKEY,"");refreshAdmin();adminMsg("");load()});
+function flat(r){
+  const o={id:r.id,creado:r.creado,organizacion:r.org,municipio:r.municipio,nombre:r.nombre,cargo:r.cargo,correo:r.correo,telefono:r.telefono,
+    tipo_actor:r.actor==="__otro"?"Otro: "+(r.actorOtro||""):r.actor,subregiones:(r.subregiones||[]).join(" | "),codecti:r.codecti,conocia_ordenanza:r.conocia,misiones:(r.misiones||[]).join(" | ")};
+  LINEAS.forEach(l=>{const v=(r.lineas||{})[l.k]||{};o[l.lbl+"_decision"]=v.d||"";o[l.lbl+"_prioridad"]=v.p||""});
+  o.lineas_nuevas=(r.nuevas||[]).map(n=>n==="__otro"?"Otra: "+(r.nuevaOtra||""):n).join(" | ");o.como_reformular=r.p1c;
+  [0,1,2].forEach(i=>{const m=(r.metas||[])[i]||{};o[`meta${i+1}`]=m.meta?[m.linea,m.meta,"Ind: "+(m.indicador||""),"Base: "+(m.base||""),"2027: "+(m.m2027||""),"2030: "+(m.m2030||""),"2033: "+(m.m2033||"")].join(" · "):""});
+  o.subregion_esfuerzo=(r.p2sub||[]).join(" | ");o.poblaciones=(r.p2pob||[]).map(n=>n==="__otro"?"Otra: "+(r.p2pobOtra||""):n).join(" | ");
+  [0,1].forEach(i=>{const p=(r.proyectos||[])[i]||{};o[`proyecto${"AB"[i]}_nombre`]=p.nombre||"";o[`proyecto${"AB"[i]}_lineas`]=p.lineas||"";o[`proyecto${"AB"[i]}_subregion`]=p.subregion||"";o[`proyecto${"AB"[i]}_valor`]=p.valor||"";o[`proyecto${"AB"[i]}_contrapartida`]=p.contrapartida||"";o[`proyecto${"AB"[i]}_aliados`]=p.aliados||"";o[`proyecto${"AB"[i]}_madurez`]=p.madurez?MADUREZ[p.madurez-1][0]:"";o[`proyecto${"AB"[i]}_fuentes`]=(p.fuentes||[]).join(" | ")});
+  o.barreras=(r.barreras||[]).map(n=>n==="__otro"?"Otra: "+(r.barreraOtra||""):n).join(" | ");
+  [0,1,2].forEach(i=>{const a=(r.anclas||[])[i]||{};o[`ancla${i+1}`]=a.linea||a.actor?[a.linea,a.actor,(a.roles||[]).join("+")].join(" · "):""});
+  AJUSTES.forEach(([k])=>o["ajuste_"+k]=(r.ajustes||{})[k]||"");o.condicion_compromiso=r.p4c;
+  [0,1,2].forEach(i=>{const d=(r.datos||[])[i]||{};o[`dato${i+1}`]=d.dato?[d.dato,d.lineas,d.frecuencia,d.desag].join(" · "):""});
+  o.como_conocer_avance=(r.p5b||[]).map(n=>n==="__otro"?"Otro: "+(r.p5bOtro||""):n).join(" | ");o.frecuencia=r.p5c;o.acuerdo_datos=r.p5d;o.comentarios=r.comentarios;
+  return o;
+}
+$("#csvBtn").addEventListener("click",()=>{
+  const rows=records.map(flat);const cols=Object.keys(flat({}));
+  const cell=v=>{v=v==null?"":String(v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const csv="﻿"+[cols.join(","),...rows.map(o=>cols.map(c=>cell(o[c])).join(","))].join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download="consulta-ctei-caldas-"+new Date().toISOString().slice(0,10)+".csv";document.body.appendChild(a);a.click();a.remove();
+});
+
+/* ================= ROUTER ================= */
+const VIEWS=["inicio","contexto","consulta","resultados"];
+function route(){
+  let v=(location.hash||"#inicio").slice(1); if(!VIEWS.includes(v))v="inicio";
+  $$("[data-view]").forEach(el=>el.hidden=el.id!=="v-"+v);
+  $$(".nav a").forEach(a=>a.getAttribute("href")==="#"+v?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  if(v==="consulta")renderStep();
+  if(v==="resultados")renderResults();
+  scrollTo(0,0);
+}
+addEventListener("hashchange",route);
+refreshAdmin();route();load();
+setInterval(()=>{if(!document.hidden&&location.hash==="#resultados"&&mode==="db")load()},120000);
+</script>
+</body>
+</html>
