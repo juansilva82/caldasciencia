@@ -1,0 +1,53 @@
+/* Design Tokens - Caldas CTeI */
+:root {
+  /* Paleta de colores oficial - Invariable */
+  --navy: #12294a;
+  --navy-2: #1b3a63;
+  --teal: #17839f;
+  --sky: #41b6e0;
+  --lime: #8dc63f;
+  --ochre: #c8892e;
+  --ink: #152238;
+  --muted: #566377;
+  --line: #dbe3ec;
+  --bg: #f4f7fa;
+  --surface: #ffffff;
+  --soft: #e8f2f7;
+  --soft-g: #eef6e4;
+  --soft-ochre: #fdf5eb;
+
+  /* Colores para decisiones de líneas */
+  --d-mantener: #17839f;
+  --d-reformular: #41b6e0;
+  --d-fusionar: #8dc63f;
+  --d-eliminar: #c8892e;
+
+  /* 4 Ejes de impacto del Objeto */
+  --eje-productivo: #17839f;
+  --eje-resiliencia: #c8892e;
+  --eje-cohesion: #41b6e0;
+  --eje-ambiental: #8dc63f;
+
+  /* Tipografía */
+  --head: "Poppins", "Segoe UI", Arial, sans-serif;
+  --body: "Lato", "Segoe UI", system-ui, sans-serif;
+
+  /* Sombras y elevaciones */
+  --shadow-sm: 0 1px 3px rgba(18, 41, 74, 0.05);
+  --shadow: 0 4px 14px rgba(18, 41, 74, 0.08), 0 1px 3px rgba(18, 41, 74, 0.04);
+  --shadow-md: 0 10px 28px rgba(18, 41, 74, 0.1);
+  --shadow-lg: 0 20px 40px -10px rgba(18, 41, 74, 0.18);
+  --shadow-glow: 0 0 25px rgba(65, 182, 224, 0.25);
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transiciones */
+  --trans-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-slow: 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
