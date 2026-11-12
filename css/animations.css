@@ -1,0 +1,162 @@
+/* Animations & Micro-interactions - Caldas CTeI */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(141, 198, 63, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(141, 198, 63, 0.75);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Scroll reveal helper classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Interactive hover cards */
+.interactive-card {
+  transition: transform var(--trans-normal), box-shadow var(--trans-normal), border-color var(--trans-normal);
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sky);
+}
+
+/* Hexes floating in Hero */
+.hexes {
+  position: relative;
+  height: 100%;
+  min-height: 340px;
+}
+
+.hexes span {
+  position: absolute;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.hexes .h1 {
+  width: 200px;
+  height: 230px;
+  right: 12%;
+  top: 6%;
+  background: var(--lime);
+  animation: floatSlow 6s ease-in-out infinite;
+  opacity: 0.92;
+}
+
+.hexes .h2 {
+  width: 120px;
+  height: 138px;
+  right: 50%;
+  top: 36%;
+  background: var(--sky);
+  animation: floatSlow 7s ease-in-out infinite 1s;
+  opacity: 0.85;
+}
+
+.hexes .h3 {
+  width: 140px;
+  height: 160px;
+  right: 4%;
+  top: 54%;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+  animation: floatSlow 8s ease-in-out infinite 2s;
+}
+
+.hexes .h4 {
+  width: 70px;
+  height: 80px;
+  right: 38%;
+  top: 10%;
+  background: rgba(255, 255, 255, 0.26);
+  animation: floatSlow 5s ease-in-out infinite 0.5s;
+}
+
+@media (max-width: 860px) {
+  .hexes {
+    display: none;
+  }
+}
+
+/* Badge pulse */
+.pulse-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulse-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--lime);
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Progress bar smooth transition */
+.progress i {
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
