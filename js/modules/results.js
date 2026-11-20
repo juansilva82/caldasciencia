@@ -215,10 +215,95 @@ window.CC_RESULTS = (function() {
       </section>`;
   }
 
+  /* ================= ACTORES ENTREVISTADOS ================= */
+  const iniciales = n => n.split(/\s+/).filter(w => /^[A-ZÁÉÍÓÚÑ]/.test(w)).slice(0, 2).map(w => w[0]).join("");
+
+  function actoresHTML() {
+    const H = D.helices || [], A = D.actores || [], X = D.entrevistasAdicionales || [], T = D.temasActores || {};
+    if (!A.length) return "";
+    const hx = k => H.find(h => h.k === k) || { nombre: "Sin clasificar", color: "#8a96a8", soft: "#eef1f5", icono: "•" };
+    const nH = k => A.filter(a => a.h === k).length + X.filter(a => a.h === k).length;
+    const total = A.length + X.length;
+    const temas = Object.keys(T).map(k => [k, A.filter(a => (a.t || []).includes(k)).length]).sort((a, b) => b[1] - a[1]);
+    const maxT = Math.max(1, ...temas.map(t => t[1]));
+    const acad = nH("academia");
+
+    const card = a => {
+      const h = hx(a.h);
+      return `
+        <article class="ac" data-h="${a.h}" style="--hx:${h.color};--hx-soft:${h.soft}">
+          <header>
+            <span class="ac-av" aria-hidden="true">${esc(iniciales(a.nombre))}</span>
+            <div>
+              <h4>${esc(a.nombre)}</h4>
+              <p class="ac-cargo">${esc(a.cargo)}</p>
+              <p class="ac-ent">${esc(a.entidad)}</p>
+            </div>
+          </header>
+          <span class="ac-tag">${h.icono} ${esc(h.nombre)}</span>
+          <p class="ac-sin">${esc(a.sintesis)}</p>
+          <div>
+            <span class="hx-lab">Qué aporta al Plan</span>
+            <ul class="ac-ap">${a.aporta.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+          </div>
+          <p class="ac-hito"><b>Hito.</b> ${esc(a.hito)}</p>
+          <div class="hx-chips">${(a.t || []).map(k => `<span class="hx-chip soft">${esc(T[k] || k)}</span>`).join("")}</div>
+        </article>`;
+    };
+
+    return `
+      <section class="ac-wrap" id="actores" aria-labelledby="h-ac">
+        <div class="hx-head">
+          <span class="eyebrow">Voces del ecosistema</span>
+          <h2 id="h-ac">${total} entrevistas con actores del ecosistema</h2>
+          <p>Perfiles de los actores clave consultados en entrevistas semiestructuradas: quiénes son, desde dónde hablan y qué aportan a la reformulación del Plan de Acción.</p>
+        </div>
+        <div class="ac-sum">
+          ${H.map(h => `<div style="--hx:${h.color}"><b>${nH(h.k)}</b><span>${h.icono} ${esc(h.nombre)}</span></div>`).join("")}
+          <p class="ac-alerta"><b>Lectura:</b> ${acad} de ${total} entrevistas son de la academia y solo ${nH("estado")} del Estado y ${nH("sociedad")} de la sociedad civil. Para equilibrar la cuádruple hélice faltan voces de alcaldías, secretarías departamentales, gremios agropecuarios y organizaciones comunitarias.</p>
+        </div>
+        <div class="ac-filtros" role="group" aria-label="Filtrar por hélice">
+          <button type="button" class="ac-f on" data-f="">Todas · ${A.length}</button>
+          ${H.map(h => { const n = A.filter(a => a.h === h.k).length; return n ? `<button type="button" class="ac-f" data-f="${h.k}" style="--hx:${h.color}">${h.icono} ${esc(h.nombre)} · ${n}</button>` : ""; }).join("")}
+        </div>
+        <div class="ac-grid">${A.map(card).join("")}</div>
+        <div class="grid2" style="gap:22px">
+          <div class="chart">
+            <span class="eyebrow">Agenda de las entrevistas</span>
+            <h3>Temas que atraviesan las conversaciones</h3>
+            <p class="sub">Número de perfiles en los que aparece cada tema</p>
+            <div class="hb">${temas.map(([k, v]) => `
+              <div class="r wide"><span title="${esc(T[k])}">${esc(T[k])}</span>
+                <div class="bar"><i style="width:calc(${v / maxT} * (100% - 70px));min-width:${v ? 4 : 0}px;background:var(--teal)"></i><span><strong>${v}</strong> de ${A.length}</span></div>
+              </div>`).join("")}</div>
+          </div>
+          <div class="chart">
+            <span class="eyebrow">Otras entrevistas registradas</span>
+            <h3>Con transcripción, perfil en preparación</h3>
+            <ul class="ac-otras">${X.map(x => { const h = hx(x.h); return `<li style="--hx:${h.color}"><i></i><span><b>${esc(x.nombre)}</b>${x.entidad ? `<small>${esc(x.entidad)}</small>` : ""}</span></li>`; }).join("")}</ul>
+          </div>
+        </div>
+        <p class="hx-src">Fuente: dossier de perfiles de actores clave y registro de entrevistas del convenio CDTER–Gobernación de Caldas (noviembre de 2026). Los perfiles describen la trayectoria y el rol de cada persona; la síntesis de lo dicho en cada entrevista se incorporará cuando se cierre la sistematización de las transcripciones.</p>
+      </section>`;
+  }
+
+  function bindActores(root) {
+    if (!root || root.dataset.acb) return;
+    root.dataset.acb = "1";
+    root.addEventListener("click", e => {
+      const b = e.target.closest(".ac-f");
+      if (!b) return;
+      const f = b.dataset.f;
+      root.querySelectorAll(".ac-f").forEach(x => x.classList.toggle("on", x === b));
+      root.querySelectorAll(".ac").forEach(c => { c.hidden = !!f && c.dataset.h !== f; });
+    });
+  }
+
   function renderResults() {
     const kpisEl = document.getElementById("kpis");
     const bodyEl = document.getElementById("resBody");
     if (!kpisEl || !bodyEl) return;
+    bindActores(bodyEl);
 
     const N = records.length;
     const R = records;
@@ -241,7 +326,7 @@ window.CC_RESULTS = (function() {
     `).join("");
 
     if (!N) {
-      bodyEl.innerHTML = helixCards(R) + `
+      bodyEl.innerHTML = helixCards(R) + actoresHTML() + `
         <div class="empty">
           <strong>${mode === "loading" ? "Cargando resultados…" : "Aún no hay respuestas registradas."}</strong>
           <span>Los resultados agregados aparecerán a medida que los integrantes del CODECTI y actores del SNCTeI respondan la consulta.</span>
@@ -302,7 +387,7 @@ window.CC_RESULTS = (function() {
     const p5d = D.p5d.map(s => [s, R.filter(r => r.p5d === s).length]);
     const conoc = D.conocia.map(s => [s, R.filter(r => r.conocia === s).length]);
 
-    bodyEl.innerHTML = helixCards(R) + `
+    bodyEl.innerHTML = helixCards(R) + actoresHTML() + `
       <details class="detalle">
       <summary><span><b>Detalle de la consulta, pregunta por pregunta</b><small>Líneas, metas, proyectos, gobernanza y seguimiento</small></span></summary>
       <div class="detalle-body">

@@ -272,3 +272,37 @@
 .detalle > summary b { display: block; font-family: var(--head); font-size: 18px; color: var(--navy); }
 .detalle > summary small { font-size: 14px; color: var(--muted); }
 .detalle-body { display: grid; gap: 24px; padding: 0 22px 22px; }
+
+/* ================= Actores entrevistados ================= */
+.ac-wrap { display: grid; gap: 20px; padding-top: 10px; border-top: 1px solid var(--line); }
+.ac-sum { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 2.2fr); gap: 10px; align-items: stretch; }
+.ac-sum > div { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--hx); border-radius: 10px; padding: 12px 14px; }
+.ac-sum b { display: block; font: 800 26px/1 var(--head); color: var(--navy); }
+.ac-sum span { font-size: 13px; color: var(--muted); }
+.ac-alerta { margin: 0; background: var(--soft-ochre); border: 1px solid #f0d9b5; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.45; color: var(--ink); }
+@media (max-width: 960px) { .ac-sum { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ac-alerta { grid-column: 1 / -1; } }
+.ac-filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+.ac-f { font: 700 13.5px/1 var(--body); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--navy); cursor: pointer; }
+.ac-f:hover { border-color: var(--hx, var(--teal)); }
+.ac-f.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+.ac-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1080px) { .ac-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .ac-grid { grid-template-columns: 1fr; } }
+.ac { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--hx); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; align-content: start; box-shadow: var(--shadow-sm); }
+.ac[hidden] { display: none; }
+.ac header { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 12px; align-items: start; }
+.ac-av { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--hx); color: #fff; font: 800 18px/1 var(--head); letter-spacing: .02em; }
+.ac h4 { font-family: var(--head); font-size: 17px; line-height: 1.25; color: var(--navy); }
+.ac-cargo { font-size: 13.5px; line-height: 1.35; color: var(--ink); margin-top: 3px; font-weight: 600; }
+.ac-ent { font-size: 13px; line-height: 1.35; color: var(--muted); margin-top: 2px; }
+.ac-tag { justify-self: start; font: 700 12px/1 var(--body); padding: 6px 10px; border-radius: 999px; background: var(--hx-soft); color: var(--navy); }
+.ac-sin { font-size: 14.5px; line-height: 1.5; color: var(--ink); }
+.ac-ap { margin: 0; padding-left: 18px; display: grid; gap: 5px; font-size: 14px; line-height: 1.4; }
+.ac-ap li::marker { color: var(--hx); }
+.ac-hito { font-size: 13.5px; line-height: 1.45; color: var(--muted); border-top: 1px dashed var(--line); padding-top: 10px; }
+.ac .hx-chip { font-size: 12px; padding: 4px 8px; }
+.ac-otras { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ac-otras li { display: grid; grid-template-columns: 10px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 14px; }
+.ac-otras i { width: 10px; height: 10px; border-radius: 50%; background: var(--hx); margin-top: 5px; }
+.ac-otras small { display: block; color: var(--muted); font-size: 12.5px; }
+.ac-sum .ac-alerta b { display: inline; font: 800 14px/1.45 var(--body); color: var(--ink); }
