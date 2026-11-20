@@ -117,6 +117,104 @@ window.CC_RESULTS = (function() {
     `).join("")}</div>`;
   }
 
+  /* ================= CUÁDRUPLE HÉLICE ================= */
+  const lineaLbl = k => k === "nueva" ? "Línea nueva" : ((D.lineas.find(l => l.k === k) || {}).lbl || k);
+  const lineaTit = k => k === "nueva" ? "Propuesta de línea nueva" : ((D.lineas.find(l => l.k === k) || {}).t || "");
+  const rolLbl = k => ((D.roles || []).find(x => x[0] === k) || [k, k])[1];
+
+  function helixOf(r) {
+    const H = D.helices || [];
+    const tipo = r.actor === "__otro" ? "" : r.actor;
+    let h = H.find(x => x.tipos.includes(tipo));
+    if (!h && r.actor === "__otro") h = H.find(x => x.clave.test(r.actorOtro || ""));
+    return h ? h.k : null;
+  }
+
+  function top(list, n) {
+    return [...count(list)].sort((a, b) => b[1] - a[1]).slice(0, n);
+  }
+
+  function helixCards(R) {
+    const H = D.helices || [];
+    const por = {};
+    H.forEach(h => por[h.k] = R.filter(r => helixOf(r) === h.k));
+    const nClas = H.reduce((a, h) => a + por[h.k].length, 0);
+    const repr = H.filter(h => por[h.k].length).length;
+
+    const cards = H.map(h => {
+      const rs = por[h.k], n = rs.length;
+      const lin = top(rs.flatMap(r => r.priorizadas || Object.keys(r.lineas || {})), 3);
+      const nue = top(rs.flatMap(r => (r.nuevas || []).filter(x => x !== "__otro")), 2);
+      const rol = top(rs.flatMap(r => (r.anclas || []).flatMap(a => a.roles || [])), 3);
+      const consulta = n ? `
+          <div class="hx-live">
+            <span class="hx-lab">Prioriza en la consulta</span>
+            <div class="hx-chips">${lin.map(([k]) => `<span class="hx-chip" title="${esc(lineaTit(k))}"><b>${esc(lineaLbl(k))}</b> ${esc(lineaTit(k))}</span>`).join("")}</div>
+            ${nue.length ? `<span class="hx-lab">Pide líneas nuevas en</span><div class="hx-chips">${nue.map(([t]) => `<span class="hx-chip soft">${esc(t)}</span>`).join("")}</div>` : ""}
+            ${rol.length ? `<span class="hx-lab">Se compromete a</span><div class="hx-chips">${rol.map(([k]) => `<span class="hx-chip soft">${esc(rolLbl(k))}</span>`).join("")}</div>` : ""}
+          </div>` : `
+          <div class="hx-live hx-empty">
+            <span>Aún no hay respuestas de esta hélice en la consulta.</span>
+            <a class="btn small" href="#consulta">Responder la consulta</a>
+          </div>`;
+      return `
+        <article class="hx" style="--hx:${h.color};--hx-soft:${h.soft}">
+          <header>
+            <span class="hx-ico" aria-hidden="true">${h.icono}</span>
+            <div><h3>${esc(h.nombre)}</h3><p>${esc(h.rol)}</p></div>
+            <span class="hx-n" title="Respuestas en la consulta">${n}<small>${n === 1 ? "respuesta" : "respuestas"}</small></span>
+          </header>
+          <div class="hx-nums">${(h.cifras || []).map(([v, l]) => `<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join("")}</div>
+          <p class="hx-fuerza"><b>Fortaleza.</b> ${esc(h.fuerza)}</p>
+          <div>
+            <span class="hx-lab">Lo que dice</span>
+            <ul class="hx-dice">${h.dice.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+          </div>
+          <blockquote class="hx-cita"><p>«${esc(h.cita.t)}»</p><cite>${esc(h.cita.f)}</cite></blockquote>
+          ${h.notas ? `<div class="hx-notas"><span class="hx-lab">Así califican el ecosistema (de 0 a 10)</span>${h.notas.map(([t, v]) => `<div class="hx-nota"><span>${esc(t)}</span><i><em style="width:${v * 10}%"></em></i><b>${v.toFixed(1).replace(".", ",")}</b></div>`).join("")}</div>` : ""}
+          ${consulta}
+          <p class="hx-reto"><b>El reto.</b> ${esc(h.reto)}</p>
+        </article>`;
+    }).join("");
+
+    // Coincidencias entre las hélices representadas en la consulta
+    let coinc = "";
+    if (R.length) {
+      const N = R.length;
+      const pct = x => Math.round(x / N * 100) + " %";
+      const nueAll = top(R.flatMap(r => (r.nuevas || []).filter(x => x !== "__otro")), 1)[0];
+      const noCod = R.filter(r => /no participa/i.test(r.codecti || "")).length;
+      const noCon = R.filter(r => /no la conoc/i.test(r.conocia || "")).length;
+      const tab = R.filter(r => (r.p5b || []).includes("Tablero público en línea")).length;
+      const helNue = nueAll ? H.filter(h => por[h.k].some(r => (r.nuevas || []).includes(nueAll[0]))).length : 0;
+      coinc = `
+        <div class="hx-coinc">
+          <h3>En qué coinciden las hélices</h3>
+          <div class="hx-coinc-g">
+            ${nueAll ? `<div><b>${pct(nueAll[1])}</b><span>pide una línea nueva de <strong>${esc(nueAll[0])}</strong>${helNue > 1 ? ` (${helNue} de ${repr} hélices)` : ""}.</span></div>` : ""}
+            <div><b>${pct(noCod)}</b><span>no participa hoy en el CODECTI: el consejo no está llegando a los actores.</span></div>
+            <div><b>${pct(noCon)}</b><span>no conocía la Ordenanza 952 ni su Plan de Acción.</span></div>
+            <div><b>${pct(tab)}</b><span>quiere seguir el avance en un tablero público en línea.</span></div>
+          </div>
+        </div>`;
+    }
+
+    return `
+      <section class="hx-wrap" aria-labelledby="h-hx">
+        <div class="hx-head">
+          <span class="eyebrow">Cuádruple Hélice</span>
+          <h2 id="h-hx">Lo que dicen la academia, las empresas, el Estado y la sociedad civil</h2>
+          <p>Síntesis de las entrevistas y la mesa focal de validación del diagnóstico, combinada con las respuestas que llegan a esta consulta. ${R.length ? `${nClas} de ${R.length} respuestas se clasifican en ${repr} de las 4 hélices.` : ""}</p>
+          <div class="hx-bar" role="img" aria-label="Respuestas por hélice: ${H.map(h => `${h.nombre} ${por[h.k].length}`).join(", ")}">
+            ${H.map(h => `<span style="--hx:${h.color};flex:${Math.max(por[h.k].length, 0.35)}"><i></i>${esc(h.nombre)} · ${por[h.k].length}</span>`).join("")}
+          </div>
+        </div>
+        <div class="hx-grid">${cards}</div>
+        ${coinc}
+        <p class="hx-src">Fuentes: mesa focal de validación con empresarios TIC y mapeo del CODECTI (Producto P-01), diagnóstico de capacidades y brechas (Producto P-02) y respuestas de la consulta en línea. Las citas son textuales y anónimas, conforme a la Ley 1581 de 2012. Cada respuesta se ubica en una hélice según el tipo de actor que declaró.</p>
+      </section>`;
+  }
+
   function renderResults() {
     const kpisEl = document.getElementById("kpis");
     const bodyEl = document.getElementById("resBody");
@@ -131,7 +229,7 @@ window.CC_RESULTS = (function() {
 
     kpisEl.innerHTML = [
       [N, "respuestas recibidas", ""],
-      [subs.has("Todo el departamento") ? 6 : subs.size, "de 6 subregiones representadas", "t"],
+      [[...subs].some(x => /^Todo el departamento/.test(x)) ? 6 : [...subs].filter(x => D.subregiones.includes(x)).length, "de 6 subregiones representadas", "t"],
       [nMet, "metas propuestas", "s"],
       [nProj, "proyectos o ideas", "l"],
       [nRoles, "organizaciones con compromiso", "o"]
@@ -143,7 +241,7 @@ window.CC_RESULTS = (function() {
     `).join("");
 
     if (!N) {
-      bodyEl.innerHTML = `
+      bodyEl.innerHTML = helixCards(R) + `
         <div class="empty">
           <strong>${mode === "loading" ? "Cargando resultados…" : "Aún no hay respuestas registradas."}</strong>
           <span>Los resultados agregados aparecerán a medida que los integrantes del CODECTI y actores del SNCTeI respondan la consulta.</span>
@@ -204,7 +302,10 @@ window.CC_RESULTS = (function() {
     const p5d = D.p5d.map(s => [s, R.filter(r => r.p5d === s).length]);
     const conoc = D.conocia.map(s => [s, R.filter(r => r.conocia === s).length]);
 
-    bodyEl.innerHTML = `
+    bodyEl.innerHTML = helixCards(R) + `
+      <details class="detalle">
+      <summary><span><b>Detalle de la consulta, pregunta por pregunta</b><small>Líneas, metas, proyectos, gobernanza y seguimiento</small></span></summary>
+      <div class="detalle-body">
       <div class="grid2" style="gap:22px">
         <div class="chart">
           <h3>¿Quién respondió?</h3>
@@ -298,7 +399,9 @@ window.CC_RESULTS = (function() {
           <h3>Disposición a firmar acuerdo</h3>
           ${hbars(p5d, { total: N, color: "var(--lime)", wide: false })}
         </div>
-      </div>`;
+      </div>
+      </div>
+      </details>`;
 
     if (window.CC_ADMIN) window.CC_ADMIN.render(records, mode);
   }

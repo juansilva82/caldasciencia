@@ -433,6 +433,76 @@ window.CC_DATA = {
   p5c: ["Trimestral", "Semestral", "Anual"],
   p5d: ["Sí, estamos en disposición de firmarlo", "No por el momento", "Depende del tipo de datos"],
 
+  /* ===== Cuádruple Hélice: síntesis de entrevistas, mesas y consulta =====
+     tipos: tipos de actor de la consulta que se agrupan en cada hélice (el «Otro» se clasifica con palabras clave).
+     Las citas son textuales y anónimas (Ley 1581 de 2012). Fuentes: mesa focal de validación con empresarios TIC
+     (Producto P-01), mapeo del CODECTI (P-01, tabla 4), diagnóstico de capacidades y brechas (P-02)
+     y respuestas abiertas de la consulta. */
+  helices: [
+    {
+      k: "academia", nombre: "Academia e I+D", icono: "🎓", color: "#17839f", soft: "#e3f2f6",
+      tipos: ["Institución de educación superior", "Centro de investigación o desarrollo tecnológico"],
+      clave: /universidad|instituci[oó]n educativa|centro de investigaci|laboratorio|sena/i,
+      rol: "Genera conocimiento y forma el talento del ecosistema.",
+      fuerza: "Es el estamento más fuerte y articulado del CODECTI (SUMA, CUEES) y el principal formulador de proyectos de regalías.",
+      dice: [
+        "Ofrece liderar líneas de innovación empresarial y manufactura, y aportar cada trimestre datos de graduados STEM y grupos de investigación.",
+        "Quiere laboratorios y equipamiento fuera de Manizales y un observatorio o sistema de información territorial.",
+        "Tiene proyectos en idea o perfil, pero la contrapartida y los estudios técnicos frenan su paso a financiación."
+      ],
+      cita: { t: "Se requiere ordenar y volver simétricos los objetos laborales, educacionales y organizacionales. Formación para el trabajo en prospectiva.", f: "Docente investigador · consulta" },
+      cifras: [["142", "grupos de investigación reconocidos (62 en A1 y A)"], ["95,8 %", "de los grupos está en Centro-Sur"], ["TRL 1–4", "nivel de madurez de lo que produce, frente al TRL 6–8 que piden las pymes"]],
+      reto: "La Paradoja Caldense: 2.º lugar nacional en investigadores por habitante, pero bajos resultados en mercado y absorción empresarial."
+    },
+    {
+      k: "empresa", nombre: "Sector productivo", icono: "🏭", color: "#c8892e", soft: "#fbf0e1",
+      tipos: ["Empresa", "Gremio o cámara de comercio"],
+      clave: /empresa|cl[uú]ster|gremio|c[aá]mara|industria|software|startup/i,
+      rol: "Convierte el conocimiento en empleo, ventas y exportaciones.",
+      fuerza: "452 empresas TIC matriculadas en Caldas; el talento humano es su variable mejor calificada (8,2 / 10).",
+      dice: [
+        "Califica el ecosistema con 5,5 / 10 y el acceso a capital de riesgo con 1,5 / 10, la nota más baja del estudio.",
+        "Pide un fondo de capital semilla y riesgo (modelo Yozma), consorcios para exportar y bootcamps de talento de un año.",
+        "Exige que la política ponga a los empresarios en el centro y no a las instituciones."
+      ],
+      cita: { t: "Todo es muy romántico, pero nadie habla de plata.", f: "Empresario TIC · mesa focal de validación" },
+      cita2: { t: "Roles claros, pero que el centro sean los empresarios y no las instituciones.", f: "Gestor de clúster · consulta" },
+      cifras: [["452", "empresas TIC con $319.325 millones en ventas y 2.423 empleos"], ["91,6 %", "son microempresas"], ["141", "empresas reportaron ventas en cero"]],
+      reto: "Siempre participan las mismas ~15 empresas: el 3,3 % del clúster. Los apoyos de $1 a $2 millones para ferias son «pañitos de agua tibia».",
+      notas: [["Ecosistema", 5.5], ["Talento humano", 8.2], ["Conectividad urbana", 7.0], ["Tracción del clúster", 3.8], ["Redundancia de telecomunicaciones", 2.5], ["Capital de riesgo", 1.5]]
+    },
+    {
+      k: "estado", nombre: "Estado", icono: "🏛️", color: "#12294a", soft: "#e6ebf2",
+      tipos: ["Entidad pública departamental", "Alcaldía o entidad municipal", "Entidad pública nacional"],
+      clave: /alcald|gobernaci|secretar|ministerio|entidad p[uú]blica|municipio|corpocaldas/i,
+      rol: "Fija las reglas, financia y convoca: preside el CODECTI.",
+      fuerza: "Ordenanza 952 vigente, CONPES departamental 2026–2033 y la Corporación FUTURA aprobada como brazo operador del CODECTI.",
+      dice: [
+        "El CODECTI sesionó casi solo para aprobar regalías y omitió el seguimiento semestral que ordena la Ordenanza.",
+        "La asistencia de los titulares ronda el 55–65 % y sus recomendaciones no son vinculantes ante Hacienda.",
+        "La Unidad de CTeI depende de contratos temporales sin continuidad anual."
+      ],
+      cita: { t: "Si uno toma el Plan de Acción, le borra la palabra Caldas y le coloca Quindío, Boyacá o Arauca, el texto se lee exactamente igual.", f: "Crítica al plan vigente · mesa focal de validación" },
+      cifras: [["55–65 %", "asistencia de titulares al CODECTI"], ["9,4 / 10", "severidad de la brecha de resiliencia territorial tras el sismo"], ["$14.393 M", "senda financiera 2026–2032 para FUTURA"]],
+      reto: "Pasar de un plan «plantilla» a metas con dueño, fuente de financiación y tablero público de seguimiento."
+    },
+    {
+      k: "sociedad", nombre: "Sociedad civil", icono: "🤝", color: "#8dc63f", soft: "#eef6e4",
+      tipos: ["Organización social o comunitaria"],
+      clave: /comunal|comunitari|social|fundaci|asociaci[oó]n de|colectiv|campesin|ind[ií]gena|jóvenes|mujeres/i,
+      rol: "Apropia, valida y vigila que la CTeI llegue a los territorios.",
+      fuerza: "Las Juntas de Acción Comunal están en el área urbana y rural: pueden validar y monitorear los pilotos en campo.",
+      dice: [
+        "Ofrece a las Juntas de Acción Comunal como nodos validadores y de monitoreo de los pilotos en campo.",
+        "Prioriza economía circular, bioeconomía y gestión del riesgo, con datos por municipio cada trimestre.",
+        "Pide rendir cuentas en las subregiones, con tablero público y boletín, no solo en Manizales."
+      ],
+      cita: { t: "El monitoreo en las comunidades y su participación en los pilotos resultan importantes para el ajuste y desempeño de los indicadores.", f: "Líder comunal · consulta" },
+      cifras: [["8,5 / 10", "severidad de la brecha de cohesión social y territorial"], ["Trimestral", "frecuencia con la que ofrece reportar datos, por municipio"], ["5", "subregiones fuera de Manizales con poca articulación"]],
+      reto: "Baja incidencia real en la priorización de recursos y poca articulación con las cinco subregiones fuera de Manizales."
+    }
+  ],
+
   steps: [
     { k: "A", t: "¿Quién responde?", s: "Caracterización de la entidad" },
     { k: "1", t: "Líneas", s: "Decisiones sobre las 14 líneas de acción" },
