@@ -164,7 +164,7 @@ window.CC_CIFRAS_VIEW = (function () {
         <div class="grid2 cf-par">
           ${paradoja(D)}
           <div class="cf-txt">
-            <p class="cf-lead">${esc(D.paradoja.lectura)}</p>
+            <p class="cf-lead">${esc(D.paradoja.lectura).replace("cae al puesto 18", '<mark class="hl">cae al puesto 18</mark>')}</p>
             <div class="rule"><b>La meta que propone la línea base</b><span>Subir la razón de eficiencia del IDIC de 0,629 a 0,700 en 2027 y a 0,750 en 2030, midiendo exportaciones, licencias de patentes y empleo tecnológico.</span></div>
           </div>
         </div>

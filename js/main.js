@@ -6,7 +6,7 @@
 
 (function() {
   const VIEWS = ["inicio", "cifras", "plan", "seguimiento", "contexto", "consulta", "resultados"];
-  const HOME_ANCHORS = ["que-es", "diagnostico", "resultados-esperados", "ruta-construccion", "participacion", "objetivos", "ejes", "objeto"];
+  const HOME_ANCHORS = ["esencial", "que-es", "diagnostico", "resultados-esperados", "ruta-construccion", "participacion", "objetivos", "ejes", "objeto"];
 
   function route() {
     let hash = (location.hash || "#inicio").slice(1);

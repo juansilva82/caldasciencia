@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="css/cifras.css">
   <link rel="stylesheet" href="css/plan.css">
   <link rel="stylesheet" href="css/seguimiento.css">
+  <link rel="stylesheet" href="css/destacados.css">
 </head>
 <body>
 
@@ -44,10 +45,10 @@
       </a>
       <nav class="nav" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
+        <a href="#esencial">Lo esencial</a>
         <a href="#que-es">¿Qué es el Plan?</a>
         <a href="#diagnostico">Diagnóstico</a>
-                <a href="#ruta-construccion">Ruta del Plan</a>
-        <a href="#cifras">Cifras</a>
+                <a href="#cifras">Cifras</a>
         <a href="#plan">El Plan</a>
         <a href="#seguimiento">Seguimiento</a>
         <a href="#contexto">Documentación</a>
@@ -112,6 +113,20 @@
       </section>
 
       <!-- SECCIÓN 1: ¿QUÉ ES EL PLAN DE ACCIÓN DE CTeI DE CALDAS? -->
+      <!-- ================= LO ESENCIAL ================= -->
+      <section class="band dst-band" id="esencial" aria-labelledby="h-esencial">
+        <div class="wrap">
+          <div class="shead">
+            <span class="n">★</span>
+            <div>
+              <h2 id="h-esencial">Lo esencial en dos minutos</h2>
+              <p>Los diagnósticos que más preocupan, las propuestas más audaces y los datos que sorprenden de todo el proceso. Toque cualquiera para ir al detalle.</p>
+            </div>
+          </div>
+          <div id="dstHome"></div>
+        </div>
+      </section>
+
       <section class="band white" id="que-es" aria-labelledby="h-que-es">
         <div class="wrap">
           <div class="shead">
@@ -480,6 +495,7 @@
           <p>Cómo avanza cada uno de los 37 indicadores frente a sus metas de 2027, 2030 y 2033. Se actualiza con cada corte semestral que reporta la Secretaría Técnica del CODECTI.</p>
         </div>
       </div>
+      <div class="dst-strip" data-vista="seguimiento"></div>
       <div id="sgBody"></div>
     </div>
 
@@ -492,6 +508,7 @@
           <p>Las 14 líneas de la Ordenanza 952 con sus metas a 2027, 2030 y 2033, los nueve proyectos que las financian y lo que dijeron los líderes entrevistados. Es la propuesta que se someterá a validación del CODECTI.</p>
         </div>
       </div>
+      <div class="dst-strip" data-vista="plan"></div>
       <div id="plBody"></div>
     </div>
 
@@ -504,6 +521,7 @@
           <p>Desde dónde arranca el departamento: cómo va la política vigente, qué capacidades tiene, qué le falta y qué brechas conviene cerrar primero tras el sismo de 2026.</p>
         </div>
       </div>
+      <div class="dst-strip" data-vista="cifras"></div>
       <div id="cfBody"></div>
     </div>
 
@@ -542,10 +560,11 @@
         <div class="wrap">
           <span class="eyebrow">Resultados Agregados en Vivo</span>
           <h1>Consenso del Ecosistema de CTeI</h1>
-          <p>Lo que dicen las cuatro hélices del ecosistema (academia, empresas, Estado y sociedad civil) según las entrevistas, la mesa focal de validación y las respuestas que llegan a la consulta. Se presenta de forma agregada, sin identificar organizaciones ni personas, conforme a la Ley 1581 de 2012.</p>
+          <p>Lo que dicen las cuatro hélices del ecosistema (academia, empresas, Estado y sociedad civil) según las entrevistas, la mesa focal de validación y las respuestas que llegan a la consulta. Las respuestas de la consulta se presentan de forma agregada, sin identificar organizaciones ni personas, conforme a la Ley 1581 de 2012; los nombres y citas de las personas entrevistadas se publican con su autorización.</p>
         </div>
       </div>
 
+      <div class="dst-strip" data-vista="resultados"></div>
       <div class="wrap" style="padding-block:36px 76px;display:grid;gap:24px">
         <div class="kpis" id="kpis"></div>
         <div id="resBody" style="display:grid;gap:24px"></div>
@@ -592,6 +611,7 @@
   <script src="js/data-cifras.js"></script>
   <script src="js/data-plan.js"></script>
   <script src="js/data-seguimiento.js"></script>
+  <script src="js/data-destacados.js"></script>
   <script src="js/modules/pedagogy.js"></script>
   <script src="js/modules/survey.js"></script>
   <script src="js/modules/admin.js"></script>
@@ -599,6 +619,7 @@
   <script src="js/modules/cifras.js"></script>
   <script src="js/modules/plan.js"></script>
   <script src="js/modules/seguimiento.js"></script>
+  <script src="js/modules/destacados.js"></script>
   <script src="js/main.js"></script>
 
 </body>

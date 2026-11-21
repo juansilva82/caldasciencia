@@ -155,7 +155,7 @@ window.CC_PLAN_VIEW = (function () {
     <section class="band" id="pl-fin" aria-labelledby="pl-hf">
       <div class="wrap">
         ${shead("04", "pl-hf", "¿Cómo se financia?", "Hay recursos, pero Caldas no logra ejecutarlos: la trampa de la absorción")}
-        <p class="cf-lead" style="max-width:86ch">${esc(F.lectura)}</p>
+        <p class="cf-lead" style="max-width:86ch">${esc(F.lectura).replace("solo se ha ejecutado el 46,7 %", '<mark class="hl">solo se ha ejecutado el 46,7 %</mark>').replace("«trampa de la absorción»", '<mark class="hl">«trampa de la absorción»</mark>')}</p>
         <div class="grid2 pl-fin" style="align-items:start;margin-top:20px">
           <div class="card"><span class="eyebrow">Regalías para CTeI: asignado frente a ejecutado</span>
             <div class="pl-bi">${F.bienios.map(b => `<div class="pl-bi-r"><span>${esc(b[0])}</span>
