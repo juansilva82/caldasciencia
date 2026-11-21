@@ -552,7 +552,7 @@ window.CC_DATA = {
     { nombre: "Sebastián Ruiz", cargo: "Coordinador de financiación internacional", entidad: "Universidad de Caldas · Oficina de Innovación y Proyectos", h: "academia",
       sintesis: "Busca recursos no reembolsables y alianzas globales para que la ciencia de Caldas no dependa solo de las regalías.",
       aporta: ["Mapa de fuentes internacionales (Horizonte Europa, Erasmus+, BID, CAF)", "Cofinanciación mixta: regalías + cooperación + recursos propios", "Cooperación para equipar el Parque FUTURA"],
-      hito: "Propuestas en consorcios con socios de España, Francia, Alemania, México y Chile.", t: ["financiacion", "futura"] },
+      hito: "Propuestas en consorcios con socios de España, Francia, Alemania, México y Chile.", t: ["financiacion", "futura"], l: ["L13", "L14"] },
     { nombre: "Camilo Hincapié", cargo: "Fundador y CEO", entidad: "Nativo · agencia y academia digital", h: "empresa",
       sintesis: "Empresario de marketing de rendimiento y analítica, Google Partner, que forma talento digital en Manizales.",
       aporta: ["Adopción de comercio electrónico y analítica en mipymes", "Condiciones para que las empresas tech se instalen en FUTURA", "Bootcamps cortos de alta empleabilidad"],
@@ -576,7 +576,7 @@ window.CC_DATA = {
     { nombre: "Lina Marcela Flórez Loaiza", cargo: "Directora del Centro de Innovación INNEO", entidad: "Universidad Católica de Manizales", h: "academia",
       sintesis: "Líder de innovación social, emprendimiento inclusivo y turismo sostenible; representa a la UCM en Manizales Más.",
       aporta: ["Emprendimiento de mujeres y jóvenes rurales", "Innovación en turismo y el Paisaje Cultural Cafetero", "Espacios ciudadanos dentro de FUTURA"],
-      hito: "Premio Cóndor como líder regional de apoyo al emprendimiento.", t: ["social", "emprende", "territorio", "futura"] },
+      hito: "Premio Cóndor como líder regional de apoyo al emprendimiento.", t: ["social", "emprende", "territorio", "futura"], l: ["L4", "L13", "L9"] },
     { nombre: "Carlos Eduardo Jaramillo Sanint", cargo: "Rector · miembro del CODECTI", entidad: "Universidad Autónoma de Manizales", h: "academia",
       sintesis: "Rector desde 2019 y expresidente de SUMA, con trayectoria previa en la alta dirección de la industria de alimentos.",
       aporta: ["Compromisos de las universidades de SUMA con el Plan", "Puente entre academia y gran empresa para invertir en I+D", "Gobernanza del CODECTI que no dependa del gobierno de turno"],
@@ -584,20 +584,20 @@ window.CC_DATA = {
     { nombre: "María Alejandra Cuervo Cardona", cargo: "Líder del Parque FUTURA · enlace de la secretaría técnica del CODECTI", entidad: "Gobernación de Caldas · SDEI", h: "estado",
       sintesis: "Interlocutora técnica de la Gobernación para la puesta en marcha de FUTURA y el funcionamiento del CODECTI.",
       aporta: ["Estado de obras, dotación y modelo de operación de FUTURA", "Integrantes, actas y sesiones del CODECTI", "Ruta para aprobar el Plan de Acción en el CODECTI"],
-      hito: "Coordinó la convocatoria TerritorioLAB de innovación abierta con municipios.", t: ["futura", "gobernanza", "territorio"] }
+      hito: "Coordinó la convocatoria TerritorioLAB de innovación abierta con municipios.", t: ["futura", "gobernanza", "territorio"], l: ["L13", "L4", "L8"] }
   ],
   // Entrevistas con transcripción registrada cuyo perfil aún no está en el dossier
   entrevistasAdicionales: [
-    { nombre: "Carlos Alberto Villegas", entidad: "Decano de la Facultad de Salud · Universidad de Caldas", h: "academia" },
-    { nombre: "Alejandro Múnera", entidad: "Universidad de Caldas", h: "academia" },
-    { nombre: "Victoria Salazar", entidad: "Universidad Autónoma de Manizales", h: "academia" },
-    { nombre: "Juanita, David y Kenny", entidad: "Equipo de innovación · Universidad Autónoma de Manizales", h: "academia" },
-    { nombre: "Jorge Arboleda", entidad: "Universidad de Manizales", h: "academia" },
-    { nombre: "Valentín Vargas", entidad: "Universidad de Manizales", h: "academia" },
-    { nombre: "Paola Alzate", entidad: "Universidad Católica Luis Amigó", h: "academia" },
-    { nombre: "Jeny Aguirre", entidad: "Gestión de proyectos", h: "" },
-    { nombre: "Elvira Cristina Ruiz Jiménez", entidad: "", h: "" },
-    { nombre: "Cámara de Comercio de Manizales por Caldas", entidad: "Equipo institucional", h: "empresa" }
+    { nombre: "Carlos Alberto Villegas Isaza", entidad: "Decano de la Facultad de Ciencias para la Salud · Universidad de Caldas", h: "academia", l: ["L12", "L14", "L4"] },
+    { nombre: "Alejandro Múnera y Jesús David Gallego Zuluaga", entidad: "Oficina de Innovación y Formulación de Proyectos · Universidad de Caldas", h: "academia", l: ["L12", "L6", "L7", "L14"] },
+    { nombre: "Victoria Salazar Gil", entidad: "Directora del Programa Paz y Competitividad · Universidad Autónoma de Manizales", h: "academia", l: ["L13", "L12", "L1"] },
+    { nombre: "Juana María Toro, David Felipe Ordoñez y Kenny Mauricio Gómez", entidad: "Semilleros, CDT Investiga y Unidad de Emprendimiento · Universidad Autónoma de Manizales", h: "academia", l: ["L14", "L9", "L5", "L8"] },
+    { nombre: "Jorge Arboleda", entidad: "Docente investigador · Universidad de Manizales", h: "academia", l: ["L9", "L1", "L13"] },
+    { nombre: "Paola Alzate", entidad: "Investigadora en logística y gestión empresarial · Universidad Católica Luis Amigó", h: "academia", l: ["L9", "L14", "L1"] },
+    { nombre: "Elvira Cristina Ruiz Jiménez", entidad: "Decana de la Facultad de Ciencias Exactas y Naturales · Universidad de Caldas", h: "academia", l: ["L5", "L6", "L10", "L13"] },
+    { nombre: "Cámara de Comercio de Manizales por Caldas", entidad: "Asesor de Transformación Empresarial", h: "empresa", l: ["L8", "L11", "L13"] },
+    { nombre: "Valentín Vargas", entidad: "Universidad de Manizales", h: "academia", pendiente: true },
+    { nombre: "Jeny Aguirre", entidad: "Gestión de proyectos", h: "", pendiente: true }
   ],
 
   steps: [

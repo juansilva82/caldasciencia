@@ -219,7 +219,7 @@ window.CC_RESULTS = (function() {
   const iniciales = n => n.split(/\s+/).filter(w => /^[A-ZÁÉÍÓÚÑ]/.test(w)).slice(0, 2).map(w => w[0]).join("");
 
   function actoresHTML() {
-    const H = D.helices || [], A = D.actores || [], X = D.entrevistasAdicionales || [], T = D.temasActores || {};
+    const H = D.helices || [], A = D.actores || [], XA = D.entrevistasAdicionales || [], X = XA.filter(x => !x.pendiente), XP = XA.filter(x => x.pendiente), T = D.temasActores || {};
     if (!A.length) return "";
     const hx = k => H.find(h => h.k === k) || { nombre: "Sin clasificar", color: "#8a96a8", soft: "#eef1f5", icono: "•" };
     const nH = k => A.filter(a => a.h === k).length + X.filter(a => a.h === k).length;
@@ -279,11 +279,12 @@ window.CC_RESULTS = (function() {
           </div>
           <div class="chart">
             <span class="eyebrow">Otras entrevistas registradas</span>
-            <h3>Con transcripción, perfil en preparación</h3>
+            <h3>Con transcripción sistematizada en P-06</h3>
             <ul class="ac-otras">${X.map(x => { const h = hx(x.h); return `<li style="--hx:${h.color}"><i></i><span><b>${esc(x.nombre)}</b>${x.entidad ? `<small>${esc(x.entidad)}</small>` : ""}</span></li>`; }).join("")}</ul>
+            ${XP.length ? `<p class="muted" style="font-size:13px;margin-top:10px">Programadas sin registro: ${XP.map(x => esc(x.nombre)).join(" y ")}.</p>` : ""}
           </div>
         </div>
-        <p class="hx-src">Fuente: dossier de perfiles de actores clave y registro de entrevistas del convenio CDTER–Gobernación de Caldas (noviembre de 2026). Los perfiles describen la trayectoria y el rol de cada persona; la síntesis de lo dicho en cada entrevista se incorporará cuando se cierre la sistematización de las transcripciones.</p>
+        <p class="hx-src">Fuente: dossier de perfiles de actores clave y registro de entrevistas del convenio CDTER–Gobernación de Caldas (noviembre de 2026). Los perfiles describen la trayectoria y el rol de cada persona. Lo dicho en las 11 entrevistas transcritas está sistematizado en el producto P-06, con nombres y citas publicados con autorización; véalo en <a href="#plan">El Plan</a>.</p>
       </section>`;
   }
 
@@ -310,12 +311,15 @@ window.CC_RESULTS = (function() {
   function cruceHTML(R) {
     const C = window.CC_CIFRAS, A = D.actores || [];
     if (!C || !A.length) return "";
-    const N = R.length, nA = A.length;
+    // Líneas por persona: las que asigna P-06 a cada entrevista transcrita; si no hay, la correspondencia por temas del perfil
+    const PERS = [...A.map(a => a.l || [...new Set((a.t || []).map(t => TEMA_LINEA[t]).filter(Boolean))]),
+      ...(D.entrevistasAdicionales || []).filter(x => !x.pendiente && x.l).map(x => x.l)];
+    const N = R.length, nA = PERS.length;
     const EST = { avanzo: ["Avanzó", "#2f8a4c"], parcial: ["Parcial", "#b07a12"], sin: ["Sin avance", "#b8432f"] };
     const PR = { 1: ["I", "#b8432f"], 2: ["II", "#c8892e"], 3: ["III", "#7d8a9c"] };
     const rows = D.lineas.map(l => {
       const lbl = l.lbl, br = C.brechas.find(b => b.l === lbl) || {}, est = (C.lineas.find(x => x.c === lbl) || {}).e;
-      const ent = A.filter(a => (a.t || []).some(t => TEMA_LINEA[t] === l.k)).length;
+      const ent = PERS.filter(p => p.includes(l.k)).length;
       const con = R.filter(r => (r.priorizadas || []).includes(l.k)).length;
       const f = {
         brecha: br.p === 1,
@@ -348,7 +352,7 @@ window.CC_RESULTS = (function() {
             <th scope="col">Línea de la Ordenanza 952</th>
             <th scope="col">Estado 2026<small>Línea base P-01</small></th>
             <th scope="col">Brecha técnica<small>Prioridad en P-02</small></th>
-            <th scope="col">Entrevistas<small>Perfiles que la tocan (de ${nA})</small></th>
+            <th scope="col">Entrevistas<small>La tocan (de ${nA})</small></th>
             <th scope="col">Consulta<small>La eligen entre sus 3 (de ${N})</small></th>
             <th scope="col">Coinciden</th>
           </tr></thead>
@@ -365,7 +369,7 @@ window.CC_RESULTS = (function() {
         <details class="cx-met"><summary>¿Cómo se calcula?</summary>
           <ul>
             <li><b>Brecha técnica:</b> señal alta si el diagnóstico P-02 la ubica en Prioridad I por impacto territorial y urgencia post-sismo.</li>
-            <li><b>Entrevistas:</b> señal alta si al menos un tercio de los ${nA} perfiles entrevistados trata un tema de esa línea. Correspondencia usada: bioeconomía → L-2; descentralización subregional → L-4; digitalización de mipymes → L-8; transferencia tecnológica → L-9; inteligencia artificial → L-11; talento y posgrados → L-14; Parque FUTURA, financiación, gobernanza del CODECTI, emprendimiento e innovación social → L-13. Las ${(D.entrevistasAdicionales || []).length} entrevistas sin perfil todavía no se cuentan.</li>
+            <li><b>Entrevistas:</b> señal alta si al menos un tercio de las ${nA} entrevistas toca esa línea. Para las 11 entrevistas transcritas se usan las líneas que les asigna el producto P-06. Para los demás perfiles se usa la correspondencia por temas: bioeconomía → L-2; descentralización subregional → L-4; digitalización de mipymes → L-8; transferencia tecnológica → L-9; inteligencia artificial → L-11; talento y posgrados → L-14; Parque FUTURA, financiación, gobernanza del CODECTI, emprendimiento e innovación social → L-13.</li>
             <li><b>Consulta:</b> señal alta si al menos el 25 % de las respuestas, y como mínimo dos, la eligen entre sus tres líneas prioritarias.</li>
             <li>El estado 2026 (P-01) y la mesa empresarial TIC se muestran como contexto y no suman a las coincidencias.</li>
           </ul>

@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="css/survey.css">
   <link rel="stylesheet" href="css/results.css">
   <link rel="stylesheet" href="css/cifras.css">
+  <link rel="stylesheet" href="css/plan.css">
 </head>
 <body>
 
@@ -43,12 +44,13 @@
       <nav class="nav" aria-label="Navegación principal">
         <a href="#inicio">Inicio</a>
         <a href="#que-es">¿Qué es el Plan?</a>
-        <a href="#diagnostico">Diagnóstico Actual</a>
+        <a href="#diagnostico">Diagnóstico</a>
         <a href="#resultados-esperados">4 Resultados Clave</a>
         <a href="#ruta-construccion">Ruta del Plan</a>
         <a href="#cifras">Cifras</a>
+        <a href="#plan">El Plan</a>
         <a href="#contexto">Documentación</a>
-        <a href="#resultados">Resultados en Vivo</a>
+        <a href="#resultados">Resultados</a>
         <a href="#consulta" class="cta">Participar</a>
       </nav>
     </div>
@@ -466,6 +468,18 @@
       </section>
     </div>
 
+    <!-- ================= VISTA: EL PLAN DE ACCIÓN 2026-2033 ================= -->
+    <div id="v-plan" data-view hidden>
+      <div class="vhead img" style="--vimg:url(img/ciencia-territorio.jpg)">
+        <div class="wrap">
+          <span class="eyebrow">Plan de Acción reformulado · 2026-2033</span>
+          <h1>El Plan: metas, proyectos y la voz del ecosistema</h1>
+          <p>Las 14 líneas de la Ordenanza 952 con sus metas a 2027, 2030 y 2033, los nueve proyectos que las financian y lo que dijeron los líderes entrevistados. Es la propuesta que se someterá a validación del CODECTI.</p>
+        </div>
+      </div>
+      <div id="plBody"></div>
+    </div>
+
     <!-- ================= VISTA: CALDAS EN CIFRAS DE CTeI ================= -->
     <div id="v-cifras" data-view hidden>
       <div class="vhead img" style="--vimg:url(img/red-conocimiento.jpg)">
@@ -561,11 +575,13 @@
   <script src="config.js"></script>
   <script src="js/data.js"></script>
   <script src="js/data-cifras.js"></script>
+  <script src="js/data-plan.js"></script>
   <script src="js/modules/pedagogy.js"></script>
   <script src="js/modules/survey.js"></script>
   <script src="js/modules/admin.js"></script>
   <script src="js/modules/results.js"></script>
   <script src="js/modules/cifras.js"></script>
+  <script src="js/modules/plan.js"></script>
   <script src="js/main.js"></script>
 
 </body>
