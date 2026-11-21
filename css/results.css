@@ -306,3 +306,45 @@
 .ac-otras i { width: 10px; height: 10px; border-radius: 50%; background: var(--hx); margin-top: 5px; }
 .ac-otras small { display: block; color: var(--muted); font-size: 12.5px; }
 .ac-sum .ac-alerta b { display: inline; font: 800 14px/1.45 var(--body); color: var(--ink); }
+
+/* ================= CRUCE DE FUENTES ================= */
+.cx { display: grid; gap: 16px; }
+.cx h2 { font-family: var(--head); font-size: clamp(21px, 2.4vw, 28px); color: var(--navy); line-height: 1.2; }
+.cx-lead { color: var(--muted); font-size: 15.5px; line-height: 1.55; max-width: 860px; }
+.cx-sum { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.cx-sum > div { border-radius: var(--radius-sm); padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
+.cx-s3 { background: var(--navy); color: #fff; }
+.cx-s2 { background: var(--soft); }
+.cx-sum > div > b { font: 800 32px/1 var(--head); }
+.cx-s3 > b { color: var(--lime); }
+.cx-s2 > b { color: var(--teal); }
+.cx-sum > div > span { font: 700 14.5px var(--head); }
+.cx-s3 small { color: #c9d6e6; font-size: 13.5px; }
+.cx-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.cx-chip { font-size: 13px; line-height: 1.3; padding: 5px 9px; border-radius: 8px; background: #fff; border: 1px solid var(--line); color: var(--ink); }
+.cx-chip b { color: var(--teal); margin-right: 2px; }
+.cx-warn { background: var(--soft-ochre); border-left: 4px solid var(--ochre); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 12px 16px; font-size: 14.5px; line-height: 1.5; }
+.cx-t { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 14px; }
+.cx-t thead th { background: var(--navy); color: #fff; font: 700 12.5px/1.25 var(--head); text-align: left; padding: 10px 12px; vertical-align: bottom; }
+.cx-t thead th small { display: block; font: 400 11.5px var(--body); color: #c9d6e6; margin-top: 3px; }
+.cx-t td, .cx-t tbody th { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; text-align: left; }
+.cx-t tbody th { font-weight: 400; color: var(--ink); max-width: 280px; line-height: 1.35; }
+.cx-t tbody th b { color: var(--navy); font-family: var(--head); margin-right: 4px; }
+.cx-t tr.hi { background: #f3f9ec; }
+.cx-t td small { display: block; font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+.cx-est { font: 700 12px var(--head); color: var(--c); white-space: nowrap; }
+.cx-pr { display: inline-flex; align-items: center; gap: 6px; font: 700 12.5px var(--head); color: var(--c); white-space: nowrap; }
+.cx-m { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #b9c4d1; display: inline-block; flex: none; }
+.cx-m.on { background: var(--lime); border-color: var(--lime); }
+.cx-bar { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+.cx-tr { flex: 1; height: 10px; background: #edf1f5; border-radius: 5px; overflow: hidden; }
+.cx-tr i { display: block; height: 100%; background: var(--teal); }
+.cx-tr.c i { background: var(--sky); }
+.cx-bar em { font: 700 13px var(--head); font-style: normal; color: var(--navy); width: 20px; text-align: right; }
+.cx-n { display: inline-flex; gap: 4px; }
+.cx-n i { width: 13px; height: 13px; border-radius: 50%; background: #e1e7ee; display: block; }
+.cx-n i.on { background: var(--teal); }
+.cx-n i.on.n2, .cx-n i.on.n3 { background: var(--lime); }
+.cx-met summary { cursor: pointer; font: 700 14px var(--head); color: var(--teal); }
+.cx-met ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14px; line-height: 1.5; color: var(--ink); }
+@media (max-width: 720px) { .cx-sum { grid-template-columns: 1fr; } }

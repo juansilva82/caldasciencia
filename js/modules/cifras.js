@@ -257,7 +257,7 @@ window.CC_CIFRAS_VIEW = (function () {
       <div class="wrap">
         ${shead("10", "cf-h10", "¿Qué brechas cerrar primero?", "Las 14 brechas según su impacto territorial y su urgencia después del sismo")}
         ${matriz(D)}
-        <div class="rule g" style="margin-top:24px"><b>Siguiente paso</b><span>Esta matriz se cruza con lo que priorizan los actores en la <a href="#resultados">consulta y las entrevistas</a> para definir las líneas del nuevo Plan de Acción. ¿Su organización aún no ha participado? <a href="#consulta">Responda la consulta</a>.</span></div>
+        <div class="rule g" style="margin-top:24px"><b>Siguiente paso</b><span>Esta matriz se cruza con lo que priorizan los actores en la consulta y las entrevistas para definir las líneas del nuevo Plan de Acción. <a href="#resultados">Vea dónde coinciden las tres fuentes</a>. ¿Su organización aún no ha participado? <a href="#consulta">Responda la consulta</a>.</span></div>
         ${fuente(D, "p02", "Documento en versión borrador, sujeto a validación en mesa técnica")}
       </div>
     </section>`;

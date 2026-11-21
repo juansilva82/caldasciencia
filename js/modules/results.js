@@ -299,6 +299,80 @@ window.CC_RESULTS = (function() {
     });
   }
 
+  /* ================= CRUCE DE FUENTES: BRECHAS × ENTREVISTAS × CONSULTA ================= */
+  // Qué temas de las entrevistas corresponden a cada línea de la Ordenanza 952
+  const TEMA_LINEA = { bio: "L2", territorio: "L4", pymes: "L8", transferencia: "L9", ia: "L11", talento: "L14",
+    futura: "L13", financiacion: "L13", gobernanza: "L13", emprende: "L13", social: "L13" };
+  // Líneas que también discutió la mesa focal con empresarios TIC (P-01, hallazgo 4)
+  const MESA_TIC = ["L1", "L2", "L11", "L12", "L13", "L14"];
+  const CRUCE_UMBRAL = { entrevistas: 1 / 3, consulta: 0.25, consultaMin: 2, muestra: 10 };
+
+  function cruceHTML(R) {
+    const C = window.CC_CIFRAS, A = D.actores || [];
+    if (!C || !A.length) return "";
+    const N = R.length, nA = A.length;
+    const EST = { avanzo: ["Avanzó", "#2f8a4c"], parcial: ["Parcial", "#b07a12"], sin: ["Sin avance", "#b8432f"] };
+    const PR = { 1: ["I", "#b8432f"], 2: ["II", "#c8892e"], 3: ["III", "#7d8a9c"] };
+    const rows = D.lineas.map(l => {
+      const lbl = l.lbl, br = C.brechas.find(b => b.l === lbl) || {}, est = (C.lineas.find(x => x.c === lbl) || {}).e;
+      const ent = A.filter(a => (a.t || []).some(t => TEMA_LINEA[t] === l.k)).length;
+      const con = R.filter(r => (r.priorizadas || []).includes(l.k)).length;
+      const f = {
+        brecha: br.p === 1,
+        entrevistas: ent / nA >= CRUCE_UMBRAL.entrevistas,
+        consulta: N > 0 && con >= CRUCE_UMBRAL.consultaMin && con / N >= CRUCE_UMBRAL.consulta
+      };
+      return { l, br, est, ent, con, f, n: f.brecha + f.entrevistas + f.consulta };
+    }).sort((a, b) => b.n - a.n || (a.br.p || 9) - (b.br.p || 9) || b.ent - a.ent || b.con - a.con);
+    const grupo = k => rows.filter(r => r.n === k);
+    const chips = list => list.map(r => `<span class="cx-chip" title="${esc(r.l.t)}"><b>${esc(r.l.lbl)}</b> ${esc(r.l.t)}</span>`).join("");
+    const g3 = grupo(3), g2 = grupo(2);
+    const pocas = N < CRUCE_UMBRAL.muestra;
+    const pct = (v, t) => t ? Math.round(v / t * 100) : 0;
+    const marca = on => `<i class="cx-m ${on ? "on" : ""}" aria-label="${on ? "Señal alta" : "Señal baja"}"></i>`;
+
+    return `
+      <section class="cx card" id="cruce" aria-labelledby="cx-h">
+        <span class="eyebrow">Cruce de fuentes para el nuevo Plan de Acción</span>
+        <h2 id="cx-h">¿Dónde coinciden las brechas, las entrevistas y la consulta?</h2>
+        <p class="cx-lead">Una línea es candidata fuerte para el Plan cuando el diagnóstico técnico la marca como urgente, los actores entrevistados hablan de ella y quienes responden la consulta la priorizan. Esta matriz se actualiza con cada respuesta nueva.</p>
+
+        <div class="cx-sum">
+          <div class="cx-s3"><b>${g3.length}</b><span>${g3.length === 1 ? "línea coincide" : "líneas coinciden"} en las tres fuentes</span>${g3.length ? `<div class="cx-chips">${chips(g3)}</div>` : `<small>Todavía ninguna línea reúne las tres señales.</small>`}</div>
+          <div class="cx-s2"><b>${g2.length}</b><span>${g2.length === 1 ? "línea coincide" : "líneas coinciden"} en dos fuentes</span>${g2.length ? `<div class="cx-chips">${chips(g2)}</div>` : ""}</div>
+        </div>
+        ${pocas ? `<div class="cx-warn"><b>La consulta todavía es indicativa.</b> Con ${N} ${N === 1 ? "respuesta" : "respuestas"} la columna de la consulta puede cambiar mucho; la lectura será más sólida desde ${CRUCE_UMBRAL.muestra} respuestas. <a href="#consulta">Responda la consulta</a> y comparta el enlace.</div>` : ""}
+
+        <div class="scroll"><table class="cx-t">
+          <thead><tr>
+            <th scope="col">Línea de la Ordenanza 952</th>
+            <th scope="col">Estado 2026<small>Línea base P-01</small></th>
+            <th scope="col">Brecha técnica<small>Prioridad en P-02</small></th>
+            <th scope="col">Entrevistas<small>Perfiles que la tocan (de ${nA})</small></th>
+            <th scope="col">Consulta<small>La eligen entre sus 3 (de ${N})</small></th>
+            <th scope="col">Coinciden</th>
+          </tr></thead>
+          <tbody>${rows.map(r => `<tr class="${r.n >= 2 ? "hi" : ""}">
+            <th scope="row"><b>${esc(r.l.lbl)}</b> ${esc(r.l.t)}</th>
+            <td>${r.est ? `<span class="cx-est" style="--c:${EST[r.est][1]}">${EST[r.est][0]}</span>` : "–"}</td>
+            <td>${r.br.p ? `<span class="cx-pr" style="--c:${PR[r.br.p][1]}">${marca(r.f.brecha)}Prioridad ${PR[r.br.p][0]}</span><small>${esc(r.br.ini || "")}</small>` : "–"}</td>
+            <td><div class="cx-bar">${marca(r.f.entrevistas)}<span class="cx-tr"><i style="width:${pct(r.ent, nA)}%"></i></span><em>${r.ent}</em></div>${MESA_TIC.includes(r.l.k) ? `<small>También en la mesa TIC</small>` : ""}</td>
+            <td><div class="cx-bar">${marca(r.f.consulta)}<span class="cx-tr c"><i style="width:${pct(r.con, N)}%"></i></span><em>${r.con}</em></div></td>
+            <td><span class="cx-n" role="img" aria-label="${r.n} de 3 fuentes">${[0, 1, 2].map(i => `<i class="${i < r.n ? "on n" + r.n : ""}"></i>`).join("")}</span></td>
+          </tr>`).join("")}</tbody>
+        </table></div>
+
+        <details class="cx-met"><summary>¿Cómo se calcula?</summary>
+          <ul>
+            <li><b>Brecha técnica:</b> señal alta si el diagnóstico P-02 la ubica en Prioridad I por impacto territorial y urgencia post-sismo.</li>
+            <li><b>Entrevistas:</b> señal alta si al menos un tercio de los ${nA} perfiles entrevistados trata un tema de esa línea. Correspondencia usada: bioeconomía → L-2; descentralización subregional → L-4; digitalización de mipymes → L-8; transferencia tecnológica → L-9; inteligencia artificial → L-11; talento y posgrados → L-14; Parque FUTURA, financiación, gobernanza del CODECTI, emprendimiento e innovación social → L-13. Las ${(D.entrevistasAdicionales || []).length} entrevistas sin perfil todavía no se cuentan.</li>
+            <li><b>Consulta:</b> señal alta si al menos el 25 % de las respuestas, y como mínimo dos, la eligen entre sus tres líneas prioritarias.</li>
+            <li>El estado 2026 (P-01) y la mesa empresarial TIC se muestran como contexto y no suman a las coincidencias.</li>
+          </ul>
+        </details>
+      </section>`;
+  }
+
   function renderResults() {
     const kpisEl = document.getElementById("kpis");
     const bodyEl = document.getElementById("resBody");
@@ -326,7 +400,7 @@ window.CC_RESULTS = (function() {
     `).join("");
 
     if (!N) {
-      bodyEl.innerHTML = helixCards(R) + actoresHTML() + `
+      bodyEl.innerHTML = helixCards(R) + cruceHTML(R) + actoresHTML() + `
         <div class="empty">
           <strong>${mode === "loading" ? "Cargando resultados…" : "Aún no hay respuestas registradas."}</strong>
           <span>Los resultados agregados aparecerán a medida que los integrantes del CODECTI y actores del SNCTeI respondan la consulta.</span>
@@ -387,7 +461,7 @@ window.CC_RESULTS = (function() {
     const p5d = D.p5d.map(s => [s, R.filter(r => r.p5d === s).length]);
     const conoc = D.conocia.map(s => [s, R.filter(r => r.conocia === s).length]);
 
-    bodyEl.innerHTML = helixCards(R) + actoresHTML() + `
+    bodyEl.innerHTML = helixCards(R) + cruceHTML(R) + actoresHTML() + `
       <details class="detalle">
       <summary><span><b>Detalle de la consulta, pregunta por pregunta</b><small>Líneas, metas, proyectos, gobernanza y seguimiento</small></span></summary>
       <div class="detalle-body">
