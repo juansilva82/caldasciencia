@@ -816,3 +816,17 @@
   font-size: 16px;
 }
 
+
+/* ===== Portada: estado del proceso ===== */
+.hp-steps .mini-item { text-decoration: none; align-items: flex-start; line-height: 1.4; border-radius: 8px; padding: 4px 6px; margin: 0 -6px; transition: background var(--trans-fast); }
+.hp-steps .mini-item:hover { background: rgba(255, 255, 255, .08); }
+.hp-steps .mini-item i { margin-top: 1px; }
+.hp-steps .mini-item.done i { background: var(--lime); color: var(--navy); }
+.hp-steps .mini-item.now i { background: var(--ochre); box-shadow: 0 0 0 4px rgba(200, 137, 46, .3); }
+.hp-steps .mini-item.next i { background: transparent; border: 1.5px solid rgba(255, 255, 255, .5); color: #c9d6e6; }
+.hp-steps .mini-item.next { color: #c9d6e6; }
+.fl-st { font: 700 10.5px/1 var(--head); font-style: normal; text-transform: uppercase; letter-spacing: .05em; padding: 4px 7px; border-radius: 999px; width: fit-content; margin-bottom: 4px; background: rgba(255, 255, 255, .18); }
+.fl-st.done::before { content: "✓ "; }
+.fl-st.now { background: var(--ochre); color: #fff; }
+.flow div:has(.fl-st.next) { opacity: .62; }
+.home-count { margin-top: 18px; font-size: 15px; color: var(--navy); background: var(--soft-g); border-left: 4px solid var(--lime); padding: 10px 14px; border-radius: 0 8px 8px 0; }

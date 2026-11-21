@@ -149,3 +149,26 @@
 }
 .pl-i { min-width: 0; overflow-wrap: anywhere; }
 .pl-fu li, .pl-leg li { min-width: 0; }
+/* Financiación (P-03) */
+.pl-bi { display: grid; gap: 12px; margin-top: 14px; }
+.pl-bi-r { display: grid; grid-template-columns: 82px minmax(0, 1fr) 52px; gap: 10px; align-items: center; font-size: 13.5px; }
+.pl-bi-t { position: relative; height: 22px; }
+.pl-bi-t i { position: absolute; left: 0; top: 0; height: 100%; border-radius: 0 5px 5px 0; }
+.pl-bi-t i.a { background: #c9d6e3; }
+.pl-bi-t i.e { background: #12294a; top: 5px; height: 12px; }
+.pl-bi-r b { font: 800 14px var(--head); color: var(--navy); text-align: right; }
+.pl-bi-r b.low { color: #b8432f; }
+.pl-fun { display: grid; gap: 5px; margin-top: 14px; }
+.pl-fun div { display: grid; grid-template-columns: minmax(0, var(--w)) auto; gap: 10px; align-items: center; }
+.pl-fun i { display: block; font: 800 14px/30px var(--head); font-style: normal; color: #fff; background: var(--teal); border-radius: 0 6px 6px 0; padding-left: 10px; min-width: 38px; }
+.pl-fun div:last-child i { background: #b8432f; }
+.pl-fun span { font-size: 13.5px; color: var(--ink); white-space: nowrap; }
+.pl-pil { margin-top: 22px; }
+.pl-pil .card { display: grid; gap: 6px; align-content: start; padding: 20px; }
+.pl-pil h4 { font: 700 16px var(--head); color: var(--navy); }
+.pl-pil small { font: 700 12px var(--head); color: var(--teal); }
+.pl-pil p { font-size: 13.5px; line-height: 1.5; color: var(--ink); }
+.pl-sem { margin-top: 22px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.pl-sem h3 { font-size: 21px; color: var(--navy); margin: 6px 0 8px; }
+.pl-sem p { font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+@media (max-width: 860px) { .pl-sem { grid-template-columns: 1fr; } .pl-fun span { white-space: normal; } }

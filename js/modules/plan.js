@@ -90,7 +90,7 @@ window.CC_PLAN_VIEW = (function () {
 
     el.innerHTML = `
     <nav class="cf-sub" aria-label="Partes del Plan">
-      <a href="#pl-metas">Líneas y metas</a><a href="#pl-port">Proyectos</a><a href="#pl-voz">Voz del ecosistema</a><a href="#pl-val">Validación</a>
+      <a href="#pl-metas">Líneas y metas</a><a href="#pl-port">Proyectos</a><a href="#pl-fin">Financiación</a><a href="#pl-voz">Voz del ecosistema</a><a href="#pl-val">Validación</a>
     </nav>
 
     <section class="band white" aria-labelledby="pl-h1">
@@ -116,7 +116,7 @@ window.CC_PLAN_VIEW = (function () {
           <button type="button" class="on" data-m="">Todas</button>${Object.entries(P.misiones).map(([k, M]) => `<button type="button" data-m="${k}" style="--c:${M.c}"><i></i>${esc(M.t)}</button>`).join("")}
         </div>
         <div class="pl-ls">${P.lineas.map(l => lineCard(P, l)).join("")}</div>
-        <p class="muted cf-p">Abra cada línea para ver sus indicadores. «A certificar» indica que la línea base existe pero debe validarla la fuente oficial; «Por levantar», que todavía no hay medición de partida.</p>
+        <p class="muted cf-p">Abra cada línea para ver sus indicadores. «A certificar» indica que la línea base existe pero debe validarla la fuente oficial; «Por levantar», que todavía no hay medición de partida. El avance de cada indicador se publica en el <a href="#seguimiento">tablero de seguimiento</a>.</p>
         <h3 class="pl-h3">Macro-metas de impacto departamental</h3>
         <div class="scroll"><table class="tbl cf-tbl">
           <thead><tr><th>Indicador</th><th>Línea base</th><th>2027</th><th>2030</th><th>2033</th></tr></thead>
@@ -150,9 +150,39 @@ window.CC_PLAN_VIEW = (function () {
       </div>
     </section>
 
-    <section class="band" id="pl-voz" aria-labelledby="pl-h4">
+
+    ${P.financiacion ? (() => { const F = P.financiacion, mx = Math.max(...F.bienios.map(b => b[1])); return `
+    <section class="band" id="pl-fin" aria-labelledby="pl-hf">
       <div class="wrap">
-        ${shead("04", "pl-h4", "La voz del ecosistema", `${P.escucha.lideres} líderes en ${P.escucha.entrevistas} entrevistas a profundidad, convertidas en ${P.escucha.propuestas} propuestas`)}
+        ${shead("04", "pl-hf", "¿Cómo se financia?", "Hay recursos, pero Caldas no logra ejecutarlos: la trampa de la absorción")}
+        <p class="cf-lead" style="max-width:86ch">${esc(F.lectura)}</p>
+        <div class="grid2 pl-fin" style="align-items:start;margin-top:20px">
+          <div class="card"><span class="eyebrow">Regalías para CTeI: asignado frente a ejecutado</span>
+            <div class="pl-bi">${F.bienios.map(b => `<div class="pl-bi-r"><span>${esc(b[0])}</span>
+              <div class="pl-bi-t" role="img" aria-label="${esc(b[0])}: asignado ${mill(b[1])}, ejecutado ${mill(b[2])}"><i class="a" style="width:${b[1] / mx * 100}%"></i><i class="e" style="width:${b[2] / mx * 100}%"></i></div>
+              <b class="${b[3] < 50 ? "low" : ""}">${b[3].toLocaleString("es-CO")} %</b></div>`).join("")}</div>
+            <p class="nt-leg"><span><i style="background:#c9d6e3"></i>Asignado</span><span><i style="background:#12294a"></i>Ejecutado o girado</span><span>% = absorción real</span></p>
+            <p class="muted cf-p">* Bienio 2025-2026 estimado a la fecha de corte del estudio. Al cierre de 2023-2024 quedaron $23.400 millones sin comprometer.</p>
+          </div>
+          <div class="card"><span class="eyebrow">De cada 100 ideas de proyecto…</span>
+            <div class="pl-fun">${F.embudo.map((e, i) => `<div style="--w:${e[0]}%"><i>${e[0]}</i><span>${esc(e[1])}</span></div>`).join("")}</div>
+            <p class="muted cf-p">Causas más frecuentes de observación: ${F.causas.map(c => `${c[0]} ${esc(c[1])}`).join("; ")}. La respuesta propuesta es una oficina departamental de estructuración (PMO) con clínica de proyectos MGA.</p>
+          </div>
+        </div>
+        <div class="grid4 pl-pil">${F.pilares.map((p, i) => `<div class="card"><span class="cf-num">${i + 1}</span><h4>${esc(p[0])}</h4><small>Certeza ${esc(p[1].toLowerCase())}</small><p>${esc(p[2])}</p></div>`).join("")}</div>
+        <div class="card pl-sem">
+          <div><span class="eyebrow">Fondo Semilla de Co-Inversión (modelo Yozma)</span>
+            <h3>${mill(F.semilla.total)} para el ${esc(F.semilla.periodo)}</h3>
+            <p>${esc(F.semilla.ticket)} Lo administra un fideicomiso vigilado por la Superfinanciera, con un comité de inversión técnico de cinco miembros.</p></div>
+          <div><div class="pl-mbar">${F.semilla.aportes.map((a, i) => `<div style="flex:${a[1]};background:${["#12294a", "#c8892e", "#17839f"][i]}"><b>${Math.round(a[1] / F.semilla.total * 100)} %</b></div>`).join("")}</div>
+            <ul class="pl-leg">${F.semilla.aportes.map((a, i) => `<li><i style="background:${["#12294a", "#c8892e", "#17839f"][i]}"></i>${esc(a[0])}<b>${mill(a[1])}</b></li>`).join("")}</ul></div>
+        </div>
+        ${src(F.fuente)}
+      </div>
+    </section>`; })() : ""}
+    <section class="band white" id="pl-voz" aria-labelledby="pl-h4">
+      <div class="wrap">
+        ${shead("05", "pl-h4", "La voz del ecosistema", `${P.escucha.lideres} líderes en ${P.escucha.entrevistas} entrevistas a profundidad, convertidas en ${P.escucha.propuestas} propuestas`)}
         <div class="grid2" style="align-items:start">
           <div class="card"><span class="eyebrow">Tres consensos</span>
             <div class="pl-cons">${P.consensos.map(c => `<div><div class="pl-cons-h"><b>${esc(c[0])}</b><em>${c[1]} de ${P.escucha.entrevistas}</em></div>
@@ -175,9 +205,9 @@ window.CC_PLAN_VIEW = (function () {
       </div>
     </section>
 
-    <section class="band white" id="pl-val" aria-labelledby="pl-h5">
+    <section class="band" id="pl-val" aria-labelledby="pl-h5">
       <div class="wrap">
-        ${shead("05", "pl-h5", "La ruta de validación ante el CODECTI", "Cinco pasos y seis decisiones en una sesión plenaria")}
+        ${shead("06", "pl-h5", "La ruta de validación ante el CODECTI", "Cinco pasos y seis decisiones en una sesión plenaria")}
         <ol class="pl-steps">${P.pasos.map((s, i) => `<li><span>${i + 1}</span><b>${esc(s[0])}</b><p>${esc(s[1])}</p></li>`).join("")}</ol>
         <div class="grid3 pl-dec">${P.decisiones.map((d, i) => `<div class="card"><span class="cf-num">${i + 1}</span><h4>${esc(d[0])}</h4><p>${esc(d[1])}</p></div>`).join("")}</div>
         <div class="rule g" style="margin-top:24px"><b>El Plan no queda validado hasta que se firme el acta</b><span>Mientras tanto, cualquier organización del ecosistema puede aportar en la <a href="#consulta">consulta</a> y ver cómo coinciden sus prioridades con el diagnóstico en <a href="#resultados">Resultados</a>.</span></div>

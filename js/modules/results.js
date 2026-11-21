@@ -385,6 +385,12 @@ window.CC_RESULTS = (function() {
 
     const N = records.length;
     const R = records;
+    // Contador en la portada
+    const hc = document.getElementById("homeCount"), hh = document.getElementById("homeCountHero");
+    if (mode !== "loading") {
+      if (hc) { hc.hidden = !N; hc.innerHTML = N ? `<b>${N} ${N === 1 ? "organización ya respondió" : "organizaciones ya respondieron"}</b> la consulta. Cada respuesta nueva actualiza el cruce de prioridades en Resultados.` : ""; }
+      if (hh) hh.textContent = N ? ` (${N} ${N === 1 ? "respuesta" : "respuestas"})` : "";
+    }
     const subs = new Set(R.flatMap(r => r.subregiones || []));
     const nProj = R.reduce((a, r) => a + (r.proyectos || []).length, 0);
     const nMet = R.reduce((a, r) => a + (r.metas || []).length, 0);

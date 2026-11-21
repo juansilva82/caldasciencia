@@ -223,6 +223,23 @@ window.CC_PLAN = {
     ["L-7 · Tenencia y gestión de la tierra", "Solo aparece como componente de la iniciativa de ingeniería de montaña (analítica de suelos y mapas de amenaza)."]
   ],
 
+
+  /* ---------- P-03: cómo se financia ---------- */
+  financiacion: {
+    fuente: "P-03 · Mapeo de instrumentos y fuentes de financiación de CTeI (noviembre de 2026)",
+    lectura: "El problema de la CTeI en Caldas no es la falta de recursos sino la «trampa de la absorción»: de $166.550 millones asignados al departamento en el SGR para CTeI entre 2019 y 2026, solo se ha ejecutado el 46,7 %.",
+    bienios: [["2019-2020", 32450, 22100, 68.1], ["2021-2022", 38100, 25800, 67.7], ["2023-2024", 44800, 21400, 47.8], ["2025-2026*", 51200, 8500, 16.6]],
+    embudo: [[100, "Ideas radicadas en el banco"], [48, "Formulación MGA completa"], [28, "Requisitos habilitantes del SIGP"], [16, "Aprobación del OCAD o del concurso"], [11, "Desembolso y ejecución real"]],
+    causas: [["42 %", "cotizaciones sin firma o vinculadas"], ["35 %", "actividades sin producto en la cadena MGA"], ["28 %", "contrapartidas sin soporte de nómina"], ["22 %", "madurez TRL declarada sin evidencia"]],
+    pilares: [
+      ["Departamental", "Alta", "Impuesto de Registro para FUTURA ($14.393 M hasta 2032), estampillas y contrapartidas de la Gobernación."],
+      ["Sistema General de Regalías", "Media-alta", "Asignación para la CTeI e Inversión Regional: proyectos tractor, laboratorios y extensión agropecuaria."],
+      ["Nacionales y tributarios", "Media a alta", "Fondo Francisco José de Caldas, MinTIC, iNNpulsa, SENA, Bancóldex y beneficios del CNBT (deducción y crédito fiscal)."],
+      ["Cooperación y privados", "Variable", "Obras por Impuestos (ZOMAC), Horizonte Europa, BID Lab, CAF, Fondo de Reconstrucción y capital ángel."]
+    ],
+    semilla: { total: 2500, periodo: "bienio 2027-2028 · rotatorio", aportes: [["Gobernación de Caldas", 1000], ["Inversionistas privados de Mantix", 1000], ["Universidades de SUMA", 500]],
+      ticket: "$50 a $250 millones por empresa de base tecnológica con TRL 4 o más, con participación minoritaria del 5 % al 15 % y opción de recompra en 5 años a valor nominal más IPC + 3 %." }
+  },
   /* ---------- P-06: la voz del ecosistema ---------- */
   escucha: { lideres: 14, entrevistas: 11, segmentos: 341, dimensiones: 12, propuestas: 36 },
   consensos: [

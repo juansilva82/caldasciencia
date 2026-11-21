@@ -5,7 +5,7 @@
 "use strict";
 
 (function() {
-  const VIEWS = ["inicio", "cifras", "plan", "contexto", "consulta", "resultados"];
+  const VIEWS = ["inicio", "cifras", "plan", "seguimiento", "contexto", "consulta", "resultados"];
   const HOME_ANCHORS = ["que-es", "diagnostico", "resultados-esperados", "ruta-construccion", "participacion", "objetivos", "ejes", "objeto"];
 
   function route() {
@@ -44,6 +44,9 @@
 
     if (v === "consulta" && window.CC_SURVEY) {
       window.CC_SURVEY.renderStep();
+    }
+    if (v === "seguimiento" && window.CC_SEG_VIEW) {
+      window.CC_SEG_VIEW.render();
     }
     if (v === "plan" && window.CC_PLAN_VIEW) {
       window.CC_PLAN_VIEW.render();
