@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/survey.css">
   <link rel="stylesheet" href="css/results.css">
+  <link rel="stylesheet" href="css/cifras.css">
 </head>
 <body>
 
@@ -45,6 +46,7 @@
         <a href="#diagnostico">Diagnóstico Actual</a>
         <a href="#resultados-esperados">4 Resultados Clave</a>
         <a href="#ruta-construccion">Ruta del Plan</a>
+        <a href="#cifras">Cifras</a>
         <a href="#contexto">Documentación</a>
         <a href="#resultados">Resultados en Vivo</a>
         <a href="#consulta" class="cta">Participar</a>
@@ -185,6 +187,7 @@
             <i>!</i>
             <p>El problema de Caldas no es la falta de talento científico ni la falta de recursos: <em>es la falta de conexión.</em> El conocimiento no llega a la empresa, Manizales no se articula con la periferia y los recursos de regalías no se logran viabilizar por falta de proyectos formulados en MGA.</p>
           </div>
+          <div style="margin-top:22px"><a class="btn lime" href="#cifras">Ver Caldas en cifras: línea base y brechas →</a></div>
         </div>
       </section>
 
@@ -463,6 +466,18 @@
       </section>
     </div>
 
+    <!-- ================= VISTA: CALDAS EN CIFRAS DE CTeI ================= -->
+    <div id="v-cifras" data-view hidden>
+      <div class="vhead img" style="--vimg:url(img/red-conocimiento.jpg)">
+        <div class="wrap">
+          <span class="eyebrow">Línea base y diagnóstico de brechas</span>
+          <h1>Caldas en cifras de ciencia, tecnología e innovación</h1>
+          <p>Desde dónde arranca el departamento: cómo va la política vigente, qué capacidades tiene, qué le falta y qué brechas conviene cerrar primero tras el sismo de 2026.</p>
+        </div>
+      </div>
+      <div id="cfBody"></div>
+    </div>
+
     <!-- ================= VISTA 3: CONSULTA A INTEGRANTES DEL ECOSISTEMA ================= -->
     <div id="v-consulta" data-view hidden>
       <div class="vhead img" style="--vimg:url('/img/actores-laboratorio.jpg')">
@@ -545,10 +560,12 @@
   <!-- ================= SCRIPTS MODULARES ================= -->
   <script src="config.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/data-cifras.js"></script>
   <script src="js/modules/pedagogy.js"></script>
   <script src="js/modules/survey.js"></script>
   <script src="js/modules/admin.js"></script>
   <script src="js/modules/results.js"></script>
+  <script src="js/modules/cifras.js"></script>
   <script src="js/main.js"></script>
 
 </body>
